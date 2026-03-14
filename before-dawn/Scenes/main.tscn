@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c5wxwwpwhsqqe"]
+
+[ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/player.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cx73m4j0g3hy6" path="res://Scenes/wood_beam.tscn" id="2_bo1nx"]
+
+[node name="Main" type="Node" unique_id=1105797884]
+
+[node name="WoodBeam" parent="." unique_id=1561265161 instance=ExtResource("2_bo1nx")]
+position = Vector2(141, 142)
+
+[node name="CharacterBody2D" parent="." unique_id=1453306990 instance=ExtResource("2_8gbba")]
+position = Vector2(140, 80)
