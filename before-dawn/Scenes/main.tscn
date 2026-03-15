@@ -1,51 +1,42 @@
-[gd_scene format=3 uid="uid://c5wxwwpwhsqqe"]
+[gd_scene format=4 uid="uid://c5wxwwpwhsqqe"]
 
 [ext_resource type="Texture2D" uid="uid://cnyftuqst4nir" path="res://Assets/gfx/map1_bg_layer3.png" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://cwk4to2jbxlff" path="res://Assets/gfx/map1_bg_layer2.png" id="2_21xkr"]
-[ext_resource type="PackedScene" uid="uid://cx73m4j0g3hy6" path="res://Scenes/wood_beam.tscn" id="2_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://b474nqx5t8fvv" path="res://Assets/gfx/map1_bg_layer1.png" id="3_6bp64"]
+[ext_resource type="TileSet" uid="uid://dyc4hahwcjiw6" path="res://Assets/gfx/forest_tileset.tres" id="4_kry3j"]
 
 [node name="Main" type="Node" unique_id=1105797884]
 
-[node name="Backgrounds" type="Node2D" parent="." unique_id=1833809041]
+[node name="Forest_Map_1" type="Node" parent="." unique_id=1191235301]
 
-[node name="Parallax2D3" type="Parallax2D" parent="Backgrounds" unique_id=2061058879]
+[node name="Backgrounds" type="Node2D" parent="Forest_Map_1" unique_id=1833809041]
+
+[node name="Parallax2D3" type="Parallax2D" parent="Forest_Map_1/Backgrounds" unique_id=2061058879]
 scroll_scale = Vector2(0.01, 0.01)
 
-[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/Parallax2D3" unique_id=1754169402]
+[node name="Sprite2D" type="Sprite2D" parent="Forest_Map_1/Backgrounds/Parallax2D3" unique_id=1754169402]
 position = Vector2(160, 82)
 texture = ExtResource("1_kry3j")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds" unique_id=1696776984]
+[node name="Parallax2D2" type="Parallax2D" parent="Forest_Map_1/Backgrounds" unique_id=1696776984]
 scroll_scale = Vector2(0.025, 0.025)
 
-[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/Parallax2D2" unique_id=1337576786]
+[node name="Sprite2D" type="Sprite2D" parent="Forest_Map_1/Backgrounds/Parallax2D2" unique_id=1337576786]
 position = Vector2(160, 82)
 texture = ExtResource("2_21xkr")
 
-[node name="Parallax2D" type="Parallax2D" parent="Backgrounds" unique_id=781269097]
+[node name="Parallax2D" type="Parallax2D" parent="Forest_Map_1/Backgrounds" unique_id=781269097]
 scroll_scale = Vector2(0.05, 0.05)
 scroll_offset = Vector2(0, -8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/Parallax2D" unique_id=277968662]
+[node name="Sprite2D" type="Sprite2D" parent="Forest_Map_1/Backgrounds/Parallax2D" unique_id=277968662]
 position = Vector2(160, 90)
 texture = ExtResource("3_6bp64")
 
-[node name="WoodBeam" parent="." unique_id=1561265161 instance=ExtResource("2_bo1nx")]
-position = Vector2(1, 162)
+[node name="TileMapLayer" type="TileMapLayer" parent="Forest_Map_1" unique_id=772183681]
+tile_map_data = PackedByteArray("AAAAAAgAAAABAAAAAAABAAgAAAACAAAAAAACAAgAAAABAAAAAAADAAgAAAACAAAAAAAEAAgAAAACAAAAAAAFAAgAAAACAAAAAAAGAAgAAAACAAAAAAAHAAgAAAAEAAAAAAAIAAgAAAABAAAAAAAJAAgAAAAIAAMAAAAKAAgAAAAIAAMAAAALAAgAAAAIAAMAAAAMAAgAAAAIAAMAAAANAAgAAAAIAAMAAAAOAAgAAAAIAAMAAAAPAAgAAAAIAAMAAAAQAAgAAAAIAAMAAAARAAgAAAAIAAMAAAASAAgAAAACAAAAAAATAAgAAAAEAAAAAAAAAAkAAAABAAEAAAABAAkAAAADAAEAAAABAAoAAAADAAEAAAACAAoAAAACAAEAAAADAAoAAAADAAEAAAADAAsAAAADAAEAAAAEAAsAAAADAAEAAAAFAAsAAAACAAEAAAAGAAsAAAADAAEAAAAHAAsAAAADAAEAAAAGAAoAAAADAAEAAAAFAAoAAAADAAEAAAAEAAoAAAADAAEAAAAAAAoAAAADAAEAAAAAAAsAAAADAAEAAAABAAsAAAADAAEAAAACAAsAAAABAAEAAAACAAkAAAADAAEAAAADAAkAAAADAAEAAAAEAAkAAAADAAEAAAAFAAkAAAADAAEAAAAGAAkAAAADAAEAAAAHAAkAAAABAAEAAAAIAAkAAAADAAEAAAAJAAkAAAADAAEAAAAKAAkAAAADAAEAAAAJAAoAAAADAAEAAAAIAAoAAAADAAEAAAAHAAoAAAADAAEAAAAJAAsAAAADAAEAAAAIAAsAAAADAAEAAAAKAAsAAAADAAEAAAAKAAoAAAADAAEAAAALAAoAAAADAAEAAAALAAkAAAABAAEAAAAMAAkAAAADAAEAAAANAAkAAAACAAEAAAALAAsAAAADAAEAAAAMAAsAAAABAAEAAAANAAsAAAADAAEAAAANAAoAAAADAAEAAAAOAAoAAAADAAEAAAAMAAoAAAADAAEAAAAPAAoAAAADAAEAAAAPAAkAAAADAAEAAAAOAAkAAAADAAEAAAAQAAkAAAADAAEAAAAOAAsAAAADAAEAAAAPAAsAAAADAAEAAAAQAAsAAAADAAEAAAARAAsAAAADAAEAAAASAAsAAAADAAEAAAASAAoAAAACAAEAAAARAAoAAAADAAEAAAAQAAoAAAADAAEAAAARAAkAAAADAAEAAAASAAkAAAADAAEAAAATAAkAAAADAAEAAAATAAoAAAADAAEAAAATAAsAAAADAAEAAAAUAAcAAAAAAAEAAAAUAAYAAAAAAAAAAAAVAAYAAAABAAAAAAAWAAYAAAACAAAAAAAXAAYAAAADAAAAAAAVAAcAAAADAAEAAAAWAAcAAAADAAEAAAAXAAcAAAADAAEAAAAYAAYAAAAFAAAAAAAYAAcAAAAFAAEAAAALAAUAAAAIAAEAAAAMAAUAAAAIAAEAAAANAAUAAAAIAAEAAAAOAAUAAAAIAAEAAAAPAAUAAAAMAAEAAAAKAAUAAAALAAEAAAALAAQAAAAIAAAAAAAMAAQAAAAIAAAAAAANAAQAAAAIAAAAAAAOAAQAAAAIAAAAAAALAAMAAAAKAAIAAAAMAAMAAAAGAAQAAAANAAMAAAAGAAQAAAAOAAMAAAAGAAMAAAAOAAIAAAAGAAMAAAAOAAEAAAAGAAMAAAANAAEAAAAGAAQAAAAMAAEAAAAGAAQAAAAMAAIAAAAGAAQAAAALAAIAAAAKAAIAAAANAAIAAAAGAAQAAAALAAEAAAAKAAIAAAAKAAQAAAAJAAIAAAAKAAMAAAAJAAIAAAAKAAIAAAAJAAIAAAAKAAEAAAAJAAIAAAAPAAQAAAAHAAIAAAAPAAMAAAAHAAIAAAAPAAIAAAAHAAIAAAAPAAEAAAAHAAIAAAARAAYAAAALAAMAAAASAAYAAAANAAMAAAAEAAYAAAALAAMAAAAGAAYAAAANAAMAAAAFAAYAAAAMAAMAAAA=")
+tile_set = ExtResource("4_kry3j")
 
-[node name="CharacterBody2D" parent="." unique_id=1453306990 instance=ExtResource("2_8gbba")]
+[node name="CharacterBody2D" parent="Forest_Map_1" unique_id=1453306990 instance=ExtResource("2_8gbba")]
 position = Vector2(140, 80)
-
-[node name="WoodBeam2" parent="." unique_id=459644377 instance=ExtResource("2_bo1nx")]
-position = Vector2(221, 162)
-
-[node name="WoodBeam3" parent="." unique_id=1639680956 instance=ExtResource("2_bo1nx")]
-position = Vector2(440, 162)
-
-[node name="WoodBeam4" parent="." unique_id=927342609 instance=ExtResource("2_bo1nx")]
-position = Vector2(661, 162)
-
-[node name="WoodBeam5" parent="." unique_id=2028769981 instance=ExtResource("2_bo1nx")]
-position = Vector2(880, 163)
