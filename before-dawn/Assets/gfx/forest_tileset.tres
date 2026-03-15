@@ -1,9 +1,10 @@
 [gd_resource type="TileSet" format=3 uid="uid://dyc4hahwcjiw6"]
 
-[ext_resource type="Texture2D" uid="uid://dj7p7k6h1nwp2" path="res://Assets/gfx/tileset_area1.png" id="1_42adp"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7438c"]
+load_path = "res://.godot/imported/tileset_area1.png-d5369d551efa86754384727e284badf1.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6bp64"]
-texture = ExtResource("1_42adp")
+texture = SubResource("CompressedTexture2D_7438c")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -3, 8, -3, 8, 8, -4, 8)
 1:0/0 = 0
@@ -56,6 +57,7 @@ texture = ExtResource("1_42adp")
 9:2/0 = 0
 9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 8, -6, 8)
 10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -4, 8, -4, 8, 0, -6, 0)
 0:3/0/physics_layer_0/polygon_0/one_way = true
@@ -86,6 +88,18 @@ texture = ExtResource("1_42adp")
 6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:4/0 = 0
 7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -8, 8, -8, 8, 8, -8, 8, -8, -3, -4, -3)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 4, -8, 4, -3, 8, -3, 8, 8, -8, 8)
+11:4/0 = 0
+11:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:4/0 = 0
+12:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:5/0 = 0
+11:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:5/0 = 0
+12:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [resource]
 physics_layer_0/collision_layer = 1

@@ -40,6 +40,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 		animated_sprite.play("run")
 		animated_sprite.flip_h = direction < 0
+		
+		# because my character sprite isn't too well made and the character isn't in the middle of a  tile
+		if animated_sprite.flip_h:
+			animated_sprite.offset.x = -10
+		else:
+			animated_sprite.offset.x = 0
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("idle")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi0vs07jvm0t8"
-path="res://.godot/imported/vamp-Sheet2.png-15b0218225be8e284ce179e58c0ab102.ctex"
+uid="uid://bpirluijfs5q8"
+path="res://.godot/imported/bush2.png-151419192e62832e379892a030916e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/vamp-Sheet2.png"
-dest_files=["res://.godot/imported/vamp-Sheet2.png-15b0218225be8e284ce179e58c0ab102.ctex"]
+source_file="res://Assets/gfx/bush2.png"
+dest_files=["res://.godot/imported/bush2.png-151419192e62832e379892a030916e92.ctex"]
 
 [params]
 
