@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var sky_node := $Backgrounds/Sky/Sky
-@onready var sun_sprite := $Backgrounds/Sky/Sun
-@onready var global_lighting := $GlobalLighting
+@onready var sky_node := $Forest_Map/Backgrounds/Sky/Sky
+@onready var sun_sprite := $Forest_Map/Backgrounds/Sky/Sun
+@onready var global_lighting := $Forest_Map/GlobalLighting
 @export var seconds_until_full_sunrise : float = 500.0
 
 var time_elapsed : float = 0.0
