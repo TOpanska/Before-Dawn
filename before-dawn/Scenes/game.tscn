@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://0e2muncmq20b"]
+
+[ext_resource type="PackedScene" uid="uid://c2hdnygro3vg5" path="res://Scenes/forest_map.tscn" id="2_wrm1d"]
+
+[sub_resource type="GDScript" id="GDScript_ebmjs"]
+script/source = "extends Node2D
+
+
+
+func _ready():
+	pass
+	#update_sun(0.0)
+
+func _process(delta):
+	pass
+	#time_elapsed += delta
+	#var progress = clamp(time_elapsed / seconds_until_full_sunrise, 0.0, 1.0)
+	
+	#update_sun(progress)
+"
+
+[node name="Game" type="Node2D" unique_id=1964043355]
+script = SubResource("GDScript_ebmjs")
+
+[node name="GlobalTimer" type="Timer" parent="." unique_id=368482138]
+wait_time = 999999.0
+autostart = true
+
+[node name="Forest_Map" parent="." unique_id=1847392461 instance=ExtResource("2_wrm1d")]
+
+[node name="CharacterBody2D" parent="Forest_Map" index="4" unique_id=1453306990]
+position = Vector2(46, 119)
+
+[editable path="Forest_Map"]
+[editable path="Forest_Map/CharacterBody2D"]
+[editable path="Forest_Map/Doors/Door_Cave"]

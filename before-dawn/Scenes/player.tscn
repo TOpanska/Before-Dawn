@@ -193,6 +193,5 @@ shape = SubResource("CapsuleShape2D_cvnsp")
 offset = Vector2(0, -20)
 process_callback = 0
 limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_6t5aa")

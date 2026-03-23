@@ -5,6 +5,9 @@ func _ready():
 	limit_left = 0
 
 func set_underground_limits(is_underground: bool):
+	position_smoothing_enabled = true
+	print(get_parent().name)
+	position_smoothing_speed = 10
 	if is_underground:
 		limit_left = 600
 	else:

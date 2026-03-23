@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://c5wxwwpwhsqqe"]
 
-[ext_resource type="Script" uid="uid://cjxihd36depl6" path="res://Scripts/UI_Elements/forest_map_1.gd" id="1_6iyac"]
-[ext_resource type="PackedScene" uid="uid://c2hdnygro3vg5" path="res://Scenes/forest_map.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://0e2muncmq20b" path="res://Scenes/game.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://cslo8fcdnri7w" path="res://Scenes/main_menu.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node" unique_id=1105797884]
 
-[node name="Game" type="Node2D" parent="." unique_id=461921135]
-script = ExtResource("1_6iyac")
+[node name="Game" parent="." unique_id=1964043355 instance=ExtResource("1_bo1nx")]
 
-[node name="Forest_Map" parent="Game" unique_id=1847392461 instance=ExtResource("1_jjgbg")]
-
-[editable path="Game/Forest_Map"]
-[editable path="Game/Forest_Map/Doors/Door_Cave"]
+[node name="MainMenu" parent="." unique_id=1204382806 instance=ExtResource("3_8gbba")]
