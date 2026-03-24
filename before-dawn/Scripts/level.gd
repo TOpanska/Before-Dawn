@@ -64,7 +64,7 @@ func update_sun(progress: float):
 	if global_lighting:
 		var night_color = Color(0.165, 0.296, 0.379, 1.0)
 		var dawn_color = Color(0.915, 0.534, 0.604, 1.0)
-		var day_color = Color(0.858, 0.838, 0.672, 1.0)
+		var day_color = Color(0.859, 0.66, 0.48, 1.0)
 		
 		var current_color
 		if progress < 0.5:

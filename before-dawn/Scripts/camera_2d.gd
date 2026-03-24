@@ -6,9 +6,14 @@ func _ready():
 
 func set_underground_limits(is_underground: bool):
 	position_smoothing_enabled = true
-	print(get_parent().name)
 	position_smoothing_speed = 10
 	if is_underground:
 		limit_left = 600
 	else:
 		limit_left = 0
+
+func set_level_limits(camera_limit_left, camera_limit_right):
+	limit_left = camera_limit_left
+	limit_right = camera_limit_right
+	#print(camera_limit_left)
+	#print(camera_limit_right)

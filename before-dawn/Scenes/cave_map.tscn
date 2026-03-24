@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bqmucvkv6bpal" path="res://Scenes/door.tscn" id="2_4mxno"]
 [ext_resource type="Texture2D" uid="uid://bd02d7kmjt2qk" path="res://Assets/gfx/cave_bg.png" id="2_uv662"]
 [ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/player.tscn" id="3_str2v"]
+[ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/gfx/lantern.png" id="6_knryl"]
+[ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/gfx/light2.png" id="7_xmge7"]
 
 [sub_resource type="Gradient" id="Gradient_uv662"]
 offsets = PackedFloat32Array(0.001992032, 0.37649402)
@@ -12,6 +14,30 @@ colors = PackedColorArray(0.012617188, 0.012617188, 0.012617188, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_g0sdy"]
 gradient = SubResource("Gradient_uv662")
+
+[sub_resource type="Gradient" id="Gradient_5buph"]
+offsets = PackedFloat32Array(0.66071427, 0.8852041, 1)
+colors = PackedColorArray(1, 0.8235294, 1, 1, 0.16800004, 0.13835299, 0.16800004, 0.16800004, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fdnlq"]
+gradient = SubResource("Gradient_5buph")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mkhvy"]
+lifetime_randomness = 0.08
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -1, 0)
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 1
+emission_sphere_radius = 2.01
+angle_min = -720.0
+angle_max = 720.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+gravity = Vector3(0, -2, 0)
+color_ramp = SubResource("GradientTexture1D_fdnlq")
+turbulence_enabled = true
+turbulence_noise_strength = 1.79
+turbulence_noise_scale = 7.0
 
 [node name="CaveMap" type="Node2D" unique_id=1865489539]
 script = ExtResource("1_ihytu")
@@ -50,9 +76,54 @@ spawn_direction = "left"
 position = Vector2(17, 1)
 
 [node name="Spawn" parent="Doors/Door_Forest" index="1" unique_id=1374766602]
-position = Vector2(-41, 16)
+position = Vector2(-37, 18)
 
 [node name="CharacterBody2D" parent="." unique_id=1453306990 instance=ExtResource("3_str2v")]
-position = Vector2(585, 207)
+position = Vector2(603, 209)
+
+[node name="Lantern" type="Sprite2D" parent="." unique_id=1880873704]
+position = Vector2(352, 247)
+texture = ExtResource("6_knryl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lantern" unique_id=1352149664]
+color = Color(1, 0.80784315, 0.59607846, 1)
+texture = ExtResource("7_xmge7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Lantern" unique_id=1667073216]
+amount = 20
+amount_ratio = 0.2425
+lifetime = 2.0
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_mkhvy")
+
+[node name="Lantern2" type="Sprite2D" parent="." unique_id=661335215]
+position = Vector2(136, 358)
+texture = ExtResource("6_knryl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lantern2" unique_id=1215869452]
+color = Color(1, 0.80784315, 0.59607846, 1)
+texture = ExtResource("7_xmge7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Lantern2" unique_id=430712000]
+amount = 20
+amount_ratio = 0.2425
+lifetime = 2.0
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_mkhvy")
+
+[node name="Lantern3" type="Sprite2D" parent="." unique_id=1765767753]
+position = Vector2(560, 215)
+texture = ExtResource("6_knryl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lantern3" unique_id=693997480]
+color = Color(1, 0.80784315, 0.59607846, 1)
+texture = ExtResource("7_xmge7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Lantern3" unique_id=47598822]
+amount = 20
+amount_ratio = 0.2425
+lifetime = 2.0
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_mkhvy")
 
 [editable path="Doors/Door_Forest"]

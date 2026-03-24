@@ -26,11 +26,11 @@ script = SubResource("GDScript_ebmjs")
 wait_time = 999999.0
 autostart = true
 
-[node name="Forest_Map" parent="." unique_id=1847392461 instance=ExtResource("2_wrm1d")]
+[node name="ForestMap" parent="." unique_id=1847392461 instance=ExtResource("2_wrm1d")]
 
-[node name="CharacterBody2D" parent="Forest_Map" index="4" unique_id=1453306990]
+[node name="CharacterBody2D" parent="ForestMap" index="4" unique_id=1453306990]
 position = Vector2(46, 119)
 
-[editable path="Forest_Map"]
-[editable path="Forest_Map/CharacterBody2D"]
-[editable path="Forest_Map/Doors/Door_Cave"]
+[editable path="ForestMap"]
+[editable path="ForestMap/CharacterBody2D"]
+[editable path="ForestMap/Doors/Door_Cave"]
