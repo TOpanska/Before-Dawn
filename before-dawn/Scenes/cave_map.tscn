@@ -50,9 +50,9 @@ spawn_direction = "left"
 position = Vector2(17, 1)
 
 [node name="Spawn" parent="Doors/Door_Forest" index="1" unique_id=1374766602]
-position = Vector2(-49, 11)
+position = Vector2(-41, 16)
 
 [node name="CharacterBody2D" parent="." unique_id=1453306990 instance=ExtResource("3_str2v")]
-position = Vector2(589, 203)
+position = Vector2(585, 207)
 
 [editable path="Doors/Door_Forest"]

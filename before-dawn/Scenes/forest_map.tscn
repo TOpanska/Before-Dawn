@@ -146,6 +146,7 @@ texture = ExtResource("5_kcvum")
 z_index = -1
 scroll_scale = Vector2(0.05, 0.05)
 scroll_offset = Vector2(12, 1)
+repeat_size = Vector2(352, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Backgrounds/Parallax2D" unique_id=638816558]
 position = Vector2(160, 90)
