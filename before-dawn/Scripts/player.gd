@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 const SPEED = 70.0
 const JUMP_VELOCITY = -290.0
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_hitbox := $Hitbox
 
 var is_attacking := false
 
@@ -15,6 +16,10 @@ func _process(delta: float) -> void:
 
 func _handle_attacking() -> void:
 	if Input.is_action_just_pressed("SWING") and not is_attacking and is_on_floor():
+		attack_hitbox.enable()
+		await get_tree().create_timer(0.2).timeout
+		attack_hitbox.disable()
+		
 		is_attacking = true
 		animated_sprite.play("attack")
 		await animated_sprite.animation_finished
@@ -47,8 +52,10 @@ func _physics_process(delta: float) -> void:
 		# because my character sprite isn't too well made and the character isn't in the middle of a  tile
 		if animated_sprite.flip_h:
 			animated_sprite.offset.x = -10
+			$Hitbox/CollisionShape2D.position = Vector2(-10, 0)
 		else:
 			animated_sprite.offset.x = 0
+			$Hitbox/CollisionShape2D.position = Vector2(13, 0)
 			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)

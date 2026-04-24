@@ -2,9 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bnmoq3l38xiln" path="res://Assets/gfx/goblin_sheet.png" id="1_l7mss"]
 [ext_resource type="Script" uid="uid://4ssk86fs3c3h" path="res://Scripts/goblin_enemy.gd" id="1_oopm2"]
-[ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/state_machine.gd" id="2_ov1qi"]
-[ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/enemy_walk.gd" id="3_ons48"]
-[ext_resource type="Script" uid="uid://bsed2ipxxrtcb" path="res://Scripts/enemy_follow.gd" id="5_2k1fa"]
+[ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="2_ov1qi"]
+[ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scenes/hurtbox.gd" id="3_n705r"]
+[ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/StateMachine/enemy_walk.gd" id="3_ons48"]
+[ext_resource type="Script" uid="uid://bsed2ipxxrtcb" path="res://Scripts/StateMachine/enemy_follow.gd" id="5_2k1fa"]
+[ext_resource type="Script" uid="uid://dembenjmkmv5j" path="res://Scripts/StateMachine/enemy_attack.gd" id="6_d2gqx"]
+[ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="7_oo8mk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov1qi"]
 atlas = ExtResource("1_l7mss")
@@ -17,6 +20,14 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oopm2"]
 atlas = ExtResource("1_l7mss")
 region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6js0"]
+atlas = ExtResource("1_l7mss")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2r3d"]
+atlas = ExtResource("1_l7mss")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2k1fa"]
 atlas = ExtResource("1_l7mss")
@@ -46,9 +57,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oopm2")
 }],
+"loop": false,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6js0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2r3d")
+}],
 "loop": true,
-"name": &"hit",
-"speed": 7.0
+"name": &"idle",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,16 +90,31 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k1fa"]
+size = Vector2(22, 25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7mss"]
 size = Vector2(11, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2gqx"]
+size = Vector2(15, 25)
 
 [node name="GoblinEnemy" type="CharacterBody2D" unique_id=1294901757]
 script = ExtResource("1_oopm2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1145871858]
 sprite_frames = SubResource("SpriteFrames_l6js0")
-animation = &"hit"
-frame_progress = 0.9429885
+animation = &"attack"
+frame = 2
+frame_progress = 1.0
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=672705837]
+script = ExtResource("3_n705r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=852418920]
+position = Vector2(-4, 0.5)
+shape = SubResource("RectangleShape2D_2k1fa")
+debug_color = Color(0.9966672, 0, 0.19118297, 0.41960785)
 
 [node name="PhysicsCollision" type="CollisionShape2D" parent="." unique_id=1423636491]
 position = Vector2(-4.5, 1)
@@ -96,3 +133,19 @@ metadata/_custom_type_script = "uid://dpwe1lv6eowwk"
 script = ExtResource("5_2k1fa")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://bsed2ipxxrtcb"
+
+[node name="EnemyAttack" type="Node" parent="StateMachine" unique_id=452111908 node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_d2gqx")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://dembenjmkmv5j"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1648958055]
+script = ExtResource("7_oo8mk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=756555045]
+position = Vector2(6.5, 0.5)
+shape = SubResource("RectangleShape2D_d2gqx")
+debug_color = Color(0.22754276, 0.6347974, 0.19995582, 0.41960785)
+
+[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
