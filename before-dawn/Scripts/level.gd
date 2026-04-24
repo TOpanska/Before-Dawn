@@ -5,7 +5,7 @@ extends Node2D
 @onready var global_lighting := $GlobalLighting
 @onready var global_timer := $"../GlobalTimer"
 
-@export var seconds_until_full_sunrise : float = 40.0
+@export var seconds_until_full_sunrise : float = 120.0
 
 var time_elapsed : float = 0.0
 
