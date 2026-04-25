@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnmoq3l38xiln" path="res://Assets/gfx/goblin_sheet.png" id="1_l7mss"]
 [ext_resource type="Script" uid="uid://4ssk86fs3c3h" path="res://Scripts/goblin_enemy.gd" id="1_oopm2"]
 [ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="2_ov1qi"]
-[ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scenes/hurtbox.gd" id="3_n705r"]
+[ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scripts/hurtbox.gd" id="3_n705r"]
 [ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/StateMachine/enemy_walk.gd" id="3_ons48"]
 [ext_resource type="Script" uid="uid://bsed2ipxxrtcb" path="res://Scripts/StateMachine/enemy_follow.gd" id="5_2k1fa"]
 [ext_resource type="Script" uid="uid://dembenjmkmv5j" path="res://Scripts/StateMachine/enemy_attack.gd" id="6_d2gqx"]
@@ -105,8 +105,7 @@ script = ExtResource("1_oopm2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1145871858]
 sprite_frames = SubResource("SpriteFrames_l6js0")
 animation = &"attack"
-frame = 2
-frame_progress = 1.0
+autoplay = "idle"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=672705837]
 script = ExtResource("3_n705r")
@@ -122,11 +121,10 @@ shape = SubResource("RectangleShape2D_l7mss")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1118625893 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_ov1qi")
-initial_state = NodePath("EnemyFollow")
+initial_state = NodePath("EnemyWalk")
 
-[node name="EnemyWalk" type="Node" parent="StateMachine" unique_id=1787979361 node_paths=PackedStringArray("enemy")]
+[node name="EnemyWalk" type="Node" parent="StateMachine" unique_id=1787979361]
 script = ExtResource("3_ons48")
-enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://dpwe1lv6eowwk"
 
 [node name="EnemyFollow" type="Node" parent="StateMachine" unique_id=162754154 node_paths=PackedStringArray("enemy")]

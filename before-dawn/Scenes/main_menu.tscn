@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cslo8fcdnri7w"]
 
-[ext_resource type="Texture2D" uid="uid://bd02d7kmjt2qk" path="res://Assets/gfx/cave_bg.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://bi7mvhjlqag87" path="res://Scripts/UI_Related/main_menu.gd" id="1_ce3w2"]
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://cp45bpbge7ltb" path="res://Assets/Fonts/SingleGhost regular.ttf" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://d14i2ak840783" path="res://Assets/gfx/menu_art_frames.png" id="2_n45e2"]
+[ext_resource type="Texture2D" uid="uid://7rguyg2t74np" path="res://Assets/gfx/Controls/controller.png" id="5_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dx1a2gg85672v" path="res://Assets/gfx/Controls/e.png" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://dmxfg5xd5r3q3" path="res://Assets/gfx/Controls/space.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://delwxdqq3aftb" path="res://Assets/gfx/Controls/wasd.png" id="8_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://fftet5i1vghk" path="res://Assets/gfx/Controls/mouse_left.png" id="9_trj04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
 atlas = ExtResource("2_n45e2")
@@ -189,10 +193,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48xlc"]
-texture = ExtResource("1_28flt")
-modulate_color = Color(0.4537487, 0.4537487, 0.4537487, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 8
@@ -217,6 +217,30 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.73467994, 0.73467994, 0.7346799, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.077086195, 0.077086195, 0.077086195, 0.83137256)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="MainMenu" type="Control" unique_id=1204382806]
 layout_mode = 3
 anchors_preset = 15
@@ -233,17 +257,8 @@ animation = &"menu_art"
 autoplay = "menu_art"
 frame_progress = 0.41546974
 
-[node name="Panel" type="Panel" parent="." unique_id=747093766]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_48xlc")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=807279430]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -294,6 +309,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
 text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=856826732]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -313,6 +329,234 @@ theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 22
 text = "Before Dawn"
 
+[node name="Panel" type="Panel" parent="." unique_id=797060273]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -66.0
+offset_right = 126.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Panel" unique_id=1668492891]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -31.0
+offset_right = 57.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
+text = "Back"
+
+[node name="Controls" type="Button" parent="Panel" unique_id=776555914]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -58.0
+offset_right = 57.5
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
+text = "Controls"
+
+[node name="HSlider" type="HSlider" parent="Panel" unique_id=68814821]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 21.0
+offset_right = 184.0
+offset_bottom = 37.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_trj04")
+
+[node name="Controls" type="Panel" parent="." unique_id=963734221]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -66.0
+offset_right = 126.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n45e2")
+
+[node name="Controller" type="Sprite2D" parent="Controls" unique_id=1626968816]
+position = Vector2(151, 52)
+texture = ExtResource("5_yhxw7")
+
+[node name="Label_Movement" type="Label" parent="Controls/Controller" unique_id=868746425]
+offset_left = -35.0
+offset_top = 26.0
+offset_right = 9.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Movement"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Interaction" type="Label" parent="Controls/Controller" unique_id=1617657193]
+offset_left = 42.0
+offset_top = -16.0
+offset_right = 88.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Interaction"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Jump" type="Label" parent="Controls/Controller" unique_id=1584793167]
+offset_left = 53.0
+offset_top = -5.0
+offset_right = 76.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Jump"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_Attack" type="Label" parent="Controls/Controller" unique_id=1693541064]
+offset_left = 50.0
+offset_top = -27.0
+offset_right = 90.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Attack"
+
+[node name="E_Button" type="Sprite2D" parent="Controls" unique_id=2037029044]
+position = Vector2(37, 55)
+texture = ExtResource("6_trj04")
+
+[node name="Label_Interaction" type="Label" parent="Controls/E_Button" unique_id=28802284]
+offset_left = 20.0
+offset_top = -6.0
+offset_right = 66.0
+offset_bottom = 5.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Interaction"
+metadata/_edit_use_anchors_ = true
+
+[node name="Space_Button" type="Sprite2D" parent="Controls" unique_id=2062330633]
+position = Vector2(37, 68)
+texture = ExtResource("7_16hvj")
+
+[node name="Label_Jump" type="Label" parent="Controls/Space_Button" unique_id=1803764950]
+offset_left = 32.0
+offset_top = -5.0
+offset_right = 55.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Jump"
+metadata/_edit_use_anchors_ = true
+
+[node name="WASD_Buttons" type="Sprite2D" parent="Controls" unique_id=1942837560]
+position = Vector2(37, 33)
+texture = ExtResource("8_vr1f0")
+
+[node name="Label_Movement" type="Label" parent="Controls/WASD_Buttons" unique_id=1968223670]
+offset_left = 24.0
+offset_top = -5.0
+offset_right = 68.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Movement"
+metadata/_edit_use_anchors_ = true
+
+[node name="Mouse_Left" type="Sprite2D" parent="Controls" unique_id=353371021]
+position = Vector2(36, 89)
+texture = ExtResource("9_trj04")
+
+[node name="Label_Attack" type="Label" parent="Controls/Mouse_Left" unique_id=1565355906]
+offset_left = 31.0
+offset_top = -6.0
+offset_right = 71.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 10
+text = "Attack"
+
+[node name="Back_2" type="Button" parent="Controls" unique_id=1718221094]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -31.0
+offset_right = 57.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
+text = "Back"
+
+[node name="Label" type="Label" parent="Controls" unique_id=1989541369]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 5.0
+offset_right = 118.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 13
+text = "Mouse & Keyboard"
+
+[node name="Label2" type="Label" parent="Controls" unique_id=282987613]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 5.0
+offset_right = 261.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 13
+text = "Controller"
+
 [connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Panel/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Controls/Back_2" to="." method="_on_back_2_pressed"]

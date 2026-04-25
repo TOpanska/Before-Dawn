@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/player.tscn" id="3_str2v"]
 [ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/gfx/lantern.png" id="6_knryl"]
 [ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/gfx/light2.png" id="7_xmge7"]
+[ext_resource type="PackedScene" uid="uid://bn6suqook7v7h" path="res://Scenes/bat_enemy.tscn" id="8_xmge7"]
 
 [sub_resource type="Gradient" id="Gradient_uv662"]
 offsets = PackedFloat32Array(0.001992032, 0.37649402)
@@ -78,7 +79,7 @@ position = Vector2(17, 1)
 [node name="Spawn" parent="Doors/Door_Forest" index="1" unique_id=1374766602]
 position = Vector2(-37, 18)
 
-[node name="CharacterBody2D" parent="." unique_id=1453306990 instance=ExtResource("3_str2v")]
+[node name="Player" parent="." unique_id=1453306990 instance=ExtResource("3_str2v")]
 position = Vector2(603, 209)
 
 [node name="Lantern" type="Sprite2D" parent="." unique_id=1880873704]
@@ -125,5 +126,8 @@ amount_ratio = 0.2425
 lifetime = 2.0
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_mkhvy")
+
+[node name="BatEnemy" parent="." unique_id=715379173 instance=ExtResource("8_xmge7")]
+position = Vector2(462, 213)
 
 [editable path="Doors/Door_Forest"]

@@ -34,7 +34,7 @@ func Update(delta: float):
 			if hitbox:
 				hitbox.monitoring = true
 			
-			attack_cooldown = 1.5
+			attack_cooldown = 0.75
 
 func Exit():
 	is_attacking = false
