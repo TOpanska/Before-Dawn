@@ -4,11 +4,11 @@
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://cp45bpbge7ltb" path="res://Assets/Fonts/SingleGhost regular.ttf" id="2_48xlc"]
 [ext_resource type="Texture2D" uid="uid://d14i2ak840783" path="res://Assets/gfx/menu_art_frames.png" id="2_n45e2"]
-[ext_resource type="Texture2D" uid="uid://7rguyg2t74np" path="res://Assets/gfx/Controls/controller.png" id="5_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://dx1a2gg85672v" path="res://Assets/gfx/Controls/e.png" id="6_trj04"]
-[ext_resource type="Texture2D" uid="uid://dmxfg5xd5r3q3" path="res://Assets/gfx/Controls/space.png" id="7_16hvj"]
-[ext_resource type="Texture2D" uid="uid://delwxdqq3aftb" path="res://Assets/gfx/Controls/wasd.png" id="8_vr1f0"]
-[ext_resource type="Texture2D" uid="uid://fftet5i1vghk" path="res://Assets/gfx/Controls/mouse_left.png" id="9_trj04"]
+[ext_resource type="Texture2D" uid="uid://7rguyg2t74np" path="res://Assets/gfx/GUI/controller.png" id="5_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dx1a2gg85672v" path="res://Assets/gfx/GUI/e.png" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://dmxfg5xd5r3q3" path="res://Assets/gfx/GUI/space.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://delwxdqq3aftb" path="res://Assets/gfx/GUI/wasd.png" id="8_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://fftet5i1vghk" path="res://Assets/gfx/GUI/mouse_left.png" id="9_trj04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
 atlas = ExtResource("2_n45e2")

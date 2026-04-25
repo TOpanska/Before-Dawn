@@ -113,9 +113,11 @@ position = Vector2(129, 148)
 
 [node name="Door_Forest" parent="Doors" unique_id=771768396 instance=ExtResource("10_we444")]
 position = Vector2(27, 131)
-destination_level_tag = "Forest"
 destination_door_tag = "Meadow"
 spawn_direction = "right"
+
+[node name="CollisionShape2D" parent="Doors/Door_Forest" index="0" unique_id=1625670170]
+disabled = true
 
 [node name="Spawn" parent="Doors/Door_Forest" index="1" unique_id=1374766602]
 position = Vector2(47, 0)

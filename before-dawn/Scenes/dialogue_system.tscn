@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://l4r25pslxtog"]
+
+[ext_resource type="Texture2D" uid="uid://doms306xut6jw" path="res://Assets/gfx/GUI/text_box.png" id="1_b43ja"]
+[ext_resource type="Script" uid="uid://dscnm4o62mpq6" path="res://Scripts/Global/dialogue_system.gd" id="1_i2efg"]
+[ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_tgreg"]
+[ext_resource type="Texture2D" uid="uid://dix0wgqivkglo" path="res://Assets/gfx/GUI/portrait.png" id="3_tgreg"]
+
+[sub_resource type="Gradient" id="Gradient_i2efg"]
+colors = PackedColorArray(0.5163938, 0.5163938, 0.5163937, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_drpe7"]
+gradient = SubResource("Gradient_i2efg")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wkns5"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_b43ja")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2efg"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 1.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="DialogueSystem" type="CanvasLayer" unique_id=268167081]
+process_mode = 3
+layer = 0
+script = ExtResource("1_i2efg")
+
+[node name="DialogueUI" type="Control" parent="." unique_id=1781886555]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogueUI" unique_id=1096161918]
+modulate = Color(0.16078432, 0.16078432, 0.16078432, 0.83137256)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -178.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_drpe7")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueUI" unique_id=1823012491]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -77.0
+offset_right = -13.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_wkns5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueUI/PanelContainer" unique_id=1732101149]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.4392157, 0.39607844, 0.32156864, 1)
+theme_override_fonts/normal_font = ExtResource("2_tgreg")
+bbcode_enabled = true
+text = "Example Text
+[wave]No way[/wave]
+[shake][color=blue]Shaky...[/color][/shake]"
+
+[node name="NameLabel" type="Label" parent="DialogueUI" unique_id=1426737766]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 88.0
+offset_right = 109.0
+offset_bottom = 111.0
+theme_override_fonts/font = ExtResource("2_tgreg")
+text = "Name"
+
+[node name="Portrait" type="Sprite2D" parent="DialogueUI" unique_id=1602211066]
+position = Vector2(36, 137)
+texture = ExtResource("3_tgreg")
+
+[node name="Timer" type="Timer" parent="DialogueUI" unique_id=232780315]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DialogueUI" unique_id=1244641687]
+
+[node name="DialogueProgressIndicator" type="PanelContainer" parent="DialogueUI" unique_id=736276696]
+self_modulate = Color(0.38039216, 0, 0.9019608, 1)
+layout_mode = 0
+offset_left = 275.0
+offset_top = 159.0
+offset_right = 315.0
+offset_bottom = 176.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_i2efg")
+
+[node name="Label" type="Label" parent="DialogueUI/DialogueProgressIndicator" unique_id=1227810564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Next"
+horizontal_alignment = 1
+vertical_alignment = 1
