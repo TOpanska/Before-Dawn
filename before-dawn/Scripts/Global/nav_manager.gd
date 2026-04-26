@@ -28,9 +28,9 @@ func go_to_level(level_tag, destination_tag):
 		
 	if scene_to_load != null:
 		spawn_door_tag = destination_tag
-		var current_scene = get_tree().root.get_child(2).get_child(1)
+		var current_scene = get_tree().root.get_child(3).get_child(1)
 		current_scene.queue_free()
-		get_tree().root.get_child(2).add_child(scene_to_load.instantiate())
+		get_tree().root.get_child(3).add_child(scene_to_load.instantiate())
 		
 
 	var camera = get_tree().get_nodes_in_group("camera")[1]

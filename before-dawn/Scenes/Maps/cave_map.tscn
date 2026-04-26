@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/gfx/Decor/lantern.png" id="6_knryl"]
 [ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/gfx/Decor/light2.png" id="7_xmge7"]
 [ext_resource type="PackedScene" uid="uid://bn6suqook7v7h" path="res://Scenes/Entities/bat_enemy.tscn" id="8_xmge7"]
-[ext_resource type="Texture2D" uid="uid://ceer1lgkdxa77" path="res://Assets/gfx/collectible.png" id="9_ao0oa"]
+[ext_resource type="PackedScene" uid="uid://6ud1w5gibg3u" path="res://Scenes/collectible.tscn" id="9_8ndml"]
+[ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/gfx/GUI/attack_control.png" id="10_8ndml"]
+[ext_resource type="Script" uid="uid://cgk7p0xd0roaq" path="res://Scripts/UI_Related/control_labels.gd" id="11_54io8"]
 
 [sub_resource type="Gradient" id="Gradient_uv662"]
 offsets = PackedFloat32Array(0.001992032, 0.37649402)
@@ -40,6 +42,9 @@ color_ramp = SubResource("GradientTexture1D_fdnlq")
 turbulence_enabled = true
 turbulence_noise_strength = 1.79
 turbulence_noise_scale = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anh3i"]
+radius = 67.36468
 
 [node name="CaveMap" type="Node2D" unique_id=1865489539]
 script = ExtResource("1_ihytu")
@@ -83,45 +88,104 @@ position = Vector2(-37, 18)
 [node name="Player" parent="." unique_id=1453306990 instance=ExtResource("3_str2v")]
 position = Vector2(603, 209)
 
-[node name="Lantern" type="Sprite2D" parent="." unique_id=1880873704]
+[node name="Decor" type="Node2D" parent="." unique_id=1745475974]
+
+[node name="Lantern" type="Sprite2D" parent="Decor" unique_id=1880873704]
 position = Vector2(352, 247)
 texture = ExtResource("6_knryl")
 
-[node name="PointLight2D" type="PointLight2D" parent="Lantern" unique_id=1352149664]
+[node name="PointLight2D" type="PointLight2D" parent="Decor/Lantern" unique_id=1352149664]
 color = Color(1, 0.80784315, 0.59607846, 1)
 texture = ExtResource("7_xmge7")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Lantern" unique_id=1667073216]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Decor/Lantern" unique_id=1667073216]
 amount = 20
 amount_ratio = 0.2425
 lifetime = 2.0
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_mkhvy")
 
-[node name="Lantern2" type="Sprite2D" parent="." unique_id=661335215]
+[node name="Lantern2" type="Sprite2D" parent="Decor" unique_id=661335215]
 position = Vector2(136, 358)
 texture = ExtResource("6_knryl")
 
-[node name="PointLight2D" type="PointLight2D" parent="Lantern2" unique_id=1215869452]
+[node name="PointLight2D" type="PointLight2D" parent="Decor/Lantern2" unique_id=1215869452]
 color = Color(1, 0.80784315, 0.59607846, 1)
 texture = ExtResource("7_xmge7")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Lantern2" unique_id=430712000]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Decor/Lantern2" unique_id=430712000]
 amount = 20
 amount_ratio = 0.2425
 lifetime = 2.0
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_mkhvy")
 
-[node name="Lantern3" type="Sprite2D" parent="." unique_id=1765767753]
+[node name="Lantern3" type="Sprite2D" parent="Decor" unique_id=1765767753]
 position = Vector2(560, 215)
 texture = ExtResource("6_knryl")
 
-[node name="PointLight2D" type="PointLight2D" parent="Lantern3" unique_id=693997480]
+[node name="PointLight2D" type="PointLight2D" parent="Decor/Lantern3" unique_id=693997480]
 color = Color(1, 0.80784315, 0.59607846, 1)
 texture = ExtResource("7_xmge7")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Lantern3" unique_id=47598822]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Decor/Lantern3" unique_id=47598822]
+amount = 20
+amount_ratio = 0.2425
+lifetime = 2.0
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_mkhvy")
+
+[node name="Controls4" type="Sprite2D" parent="Decor" unique_id=1146585007]
+visible = false
+position = Vector2(561, 194)
+texture = ExtResource("10_8ndml")
+script = ExtResource("11_54io8")
+metadata/_custom_type_script = "uid://cgk7p0xd0roaq"
+
+[node name="Area2D" type="Area2D" parent="Decor/Controls4" unique_id=1190478258]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decor/Controls4/Area2D" unique_id=26260692]
+shape = SubResource("CircleShape2D_anh3i")
+
+[node name="Lantern4" type="Sprite2D" parent="Decor" unique_id=651699659]
+position = Vector2(67, 198)
+texture = ExtResource("6_knryl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Decor/Lantern4" unique_id=1440844027]
+color = Color(1, 0.80784315, 0.59607846, 1)
+texture = ExtResource("7_xmge7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Decor/Lantern4" unique_id=905959443]
+amount = 20
+amount_ratio = 0.2425
+lifetime = 2.0
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_mkhvy")
+
+[node name="Lantern5" type="Sprite2D" parent="Decor" unique_id=1701120854]
+position = Vector2(462, 235)
+texture = ExtResource("6_knryl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Decor/Lantern5" unique_id=440733959]
+color = Color(1, 0.80784315, 0.59607846, 1)
+texture = ExtResource("7_xmge7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Decor/Lantern5" unique_id=1786975147]
+amount = 20
+amount_ratio = 0.2425
+lifetime = 2.0
+fixed_fps = 10
+process_material = SubResource("ParticleProcessMaterial_mkhvy")
+
+[node name="Lantern6" type="Sprite2D" parent="Decor" unique_id=97852430]
+position = Vector2(224, 176)
+texture = ExtResource("6_knryl")
+
+[node name="PointLight2D" type="PointLight2D" parent="Decor/Lantern6" unique_id=1027782352]
+color = Color(1, 0.80784315, 0.59607846, 1)
+texture = ExtResource("7_xmge7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Decor/Lantern6" unique_id=658361598]
 amount = 20
 amount_ratio = 0.2425
 lifetime = 2.0
@@ -134,12 +198,11 @@ position = Vector2(462, 213)
 [node name="BatReturnHome" parent="BatEnemy/StateMachine" parent_id_path=PackedInt32Array(715379173, 1241193283) index="1" unique_id=1725981397 node_paths=PackedStringArray("home")]
 home = NodePath("../../../BatHome1")
 
-[node name="Collectible" type="Sprite2D" parent="." unique_id=1790468966]
-position = Vector2(89, 201)
-texture = ExtResource("9_ao0oa")
-
 [node name="BatHome1" type="Marker2D" parent="." unique_id=282590839]
 position = Vector2(461, 213)
+
+[node name="Collectible" parent="." unique_id=2077925028 instance=ExtResource("9_8ndml")]
+position = Vector2(89, 201)
 
 [editable path="Doors/Door_Forest"]
 [editable path="BatEnemy"]

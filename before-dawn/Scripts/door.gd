@@ -7,6 +7,9 @@ class_name Door extends Area2D
 #problem
 @onready var spawn = $Spawn
 
+func _ready() -> void:
+	add_to_group("doors")
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		NavManager.go_to_level(destination_level_tag, destination_door_tag)

@@ -3,7 +3,6 @@ class_name DialogueInteraction extends Area2D
 signal player_interacted
 signal finished
 
-@export var enabled : bool = true
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var area: DialogueInteraction = $"."
 

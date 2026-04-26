@@ -1,26 +1,10 @@
 [gd_scene format=3 uid="uid://0e2muncmq20b"]
 
+[ext_resource type="Script" uid="uid://dtaj7e7vqrxq6" path="res://Scripts/game.gd" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c2hdnygro3vg5" path="res://Scenes/Maps/forest_map.tscn" id="2_wrm1d"]
 
-[sub_resource type="GDScript" id="GDScript_ebmjs"]
-script/source = "extends Node2D
-
-
-
-func _ready():
-	pass
-	#update_sun(0.0)
-
-func _process(delta):
-	pass
-	#time_elapsed += delta
-	#var progress = clamp(time_elapsed / seconds_until_full_sunrise, 0.0, 1.0)
-	
-	#update_sun(progress)
-"
-
 [node name="Game" type="Node2D" unique_id=1964043355]
-script = SubResource("GDScript_ebmjs")
+script = ExtResource("1_qxrlw")
 
 [node name="GlobalTimer" type="Timer" parent="." unique_id=368482138]
 wait_time = 999999.0
@@ -28,9 +12,18 @@ autostart = true
 
 [node name="ForestMap" parent="." unique_id=1847392461 instance=ExtResource("2_wrm1d")]
 
-[node name="CharacterBody2D" parent="ForestMap" index="4" unique_id=1453306990]
+[node name="Player" parent="ForestMap" index="7" unique_id=1453306990]
 position = Vector2(46, 119)
 
+[node name="Door_Meadow" parent="ForestMap/Doors" parent_id_path=PackedInt32Array(1847392461, 751253187) index="1" unique_id=768380864]
+monitoring = false
+destination_level_tag = ""
+destination_door_tag = ""
+spawn_direction = ""
+
+[node name="CollisionShape2D" parent="ForestMap/Doors/Door_Meadow" index="0" unique_id=1625670170]
+disabled = false
+
 [editable path="ForestMap"]
-[editable path="ForestMap/CharacterBody2D"]
 [editable path="ForestMap/Doors/Door_Cave"]
+[editable path="ForestMap/Doors/Door_Meadow"]
