@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c4ld4lrdscfbj"]
+
+[ext_resource type="Texture2D" uid="uid://dsigdx30mfsu6" path="res://Assets/gfx/Entities/lady.png" id="1_dm4ly"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wnw7"]
+atlas = ExtResource("1_dm4ly")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shxbr"]
+atlas = ExtResource("1_dm4ly")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2ste"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wnw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shxbr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Eleonor" type="Node2D" unique_id=1783511469]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=731252119]
+sprite_frames = SubResource("SpriteFrames_t2ste")
+autoplay = "default"
+frame_progress = 0.008829064

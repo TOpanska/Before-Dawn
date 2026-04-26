@@ -1,8 +1,8 @@
 extends Node
 
-const scene_forest = preload("res://Scenes/forest_map.tscn")
-const scene_cave = preload("res://Scenes/cave_map.tscn")
-const scene_meadow = preload("res://Scenes/meadow_map.tscn")
+const scene_forest = preload("res://Scenes/Maps/forest_map.tscn")
+const scene_cave = preload("res://Scenes/Maps/cave_map.tscn")
+const scene_meadow = preload("res://Scenes/Maps/meadow_map.tscn")
 
 signal on_trigger_player_spawn
 
@@ -17,12 +17,14 @@ func go_to_level(level_tag, destination_tag):
 		"Forest":
 			scene_to_load = scene_forest
 			camera_limit_left = 0
+			camera_limit_right = 2000
 		"Cave":
 			scene_to_load = scene_cave
 			camera_limit_left = 0
 			camera_limit_right = 675
 		"Meadow":
 			scene_to_load = scene_meadow
+			camera_limit_left = 0
 		
 	if scene_to_load != null:
 		spawn_door_tag = destination_tag

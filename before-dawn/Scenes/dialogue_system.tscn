@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://doms306xut6jw" path="res://Assets/gfx/GUI/text_box.png" id="1_b43ja"]
 [ext_resource type="Script" uid="uid://dscnm4o62mpq6" path="res://Scripts/Global/dialogue_system.gd" id="1_i2efg"]
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_tgreg"]
-[ext_resource type="Texture2D" uid="uid://dix0wgqivkglo" path="res://Assets/gfx/GUI/portrait.png" id="3_tgreg"]
+[ext_resource type="Texture2D" uid="uid://dxjdbfmn6xw2p" path="res://Assets/gfx/Portraits/Elenor_Portrait.png" id="4_i2efg"]
 
 [sub_resource type="Gradient" id="Gradient_i2efg"]
 colors = PackedColorArray(0.5163938, 0.5163938, 0.5163937, 1, 1, 1, 1, 0)
@@ -67,10 +67,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -254.0
-offset_top = -77.0
-offset_right = -13.0
-offset_bottom = -11.0
+offset_left = -244.0
+offset_top = -89.0
+offset_right = -10.0
+offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wkns5")
@@ -79,6 +79,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wkns5")
 layout_mode = 2
 theme_override_colors/default_color = Color(0.4392157, 0.39607844, 0.32156864, 1)
 theme_override_fonts/normal_font = ExtResource("2_tgreg")
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "Example Text
 [wave]No way[/wave]
@@ -86,16 +87,16 @@ text = "Example Text
 
 [node name="NameLabel" type="Label" parent="DialogueUI" unique_id=1426737766]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 88.0
-offset_right = 109.0
-offset_bottom = 111.0
+offset_left = 77.0
+offset_top = 76.0
+offset_right = 117.0
+offset_bottom = 99.0
 theme_override_fonts/font = ExtResource("2_tgreg")
 text = "Name"
 
 [node name="Portrait" type="Sprite2D" parent="DialogueUI" unique_id=1602211066]
-position = Vector2(36, 137)
-texture = ExtResource("3_tgreg")
+position = Vector2(40, 131)
+texture = ExtResource("4_i2efg")
 
 [node name="Timer" type="Timer" parent="DialogueUI" unique_id=232780315]
 

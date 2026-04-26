@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if (
 		event.is_action_pressed("INTERACT") or
 		event.is_action_pressed("SWING") or
-		event.is_action_pressed("Jump")
+		event.is_action_pressed("JUMP")
 	):
 		dialogue_item_index += 1
 		if dialogue_item_index	 < dialogue_items.size():

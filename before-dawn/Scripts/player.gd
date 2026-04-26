@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -290.0
 var is_attacking := false
 
 func _ready():
-	add_to_group("player")
+	#add_to_group("player")
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _process(delta: float) -> void:
