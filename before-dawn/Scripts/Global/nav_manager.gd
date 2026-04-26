@@ -17,7 +17,7 @@ func go_to_level(level_tag, destination_tag):
 		"Forest":
 			scene_to_load = scene_forest
 			camera_limit_left = 0
-			camera_limit_right = 2000
+			camera_limit_right = 1950
 		"Cave":
 			scene_to_load = scene_cave
 			camera_limit_left = 0

@@ -5,7 +5,7 @@ extends Node2D
 @onready var global_lighting := $GlobalLighting
 @onready var global_timer := $"../GlobalTimer"
 
-@export var seconds_until_full_sunrise : float = 120.0
+@export var seconds_until_full_sunrise : float = 500.0
 
 var time_elapsed : float = 0.0
 
@@ -63,7 +63,7 @@ func update_sun(progress: float):
 	# update global lighting
 	if global_lighting:
 		var night_color = Color(0.165, 0.296, 0.379, 1.0)
-		var dawn_color = Color(0.915, 0.534, 0.604, 1.0)
+		var dawn_color = Color(0.733, 0.483, 0.764, 1.0)
 		var day_color = Color(0.859, 0.66, 0.48, 1.0)
 		
 		var current_color
