@@ -83,7 +83,6 @@ initial_state = NodePath("BatReturnHome")
 script = ExtResource("4_2hjjg")
 enemy = NodePath("../..")
 
-[node name="BatReturnHome" type="Node" parent="StateMachine" unique_id=1725981397 node_paths=PackedStringArray("enemy", "home")]
+[node name="BatReturnHome" type="Node" parent="StateMachine" unique_id=1725981397 node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_mxwyp")
 enemy = NodePath("../..")
-home = NodePath("")

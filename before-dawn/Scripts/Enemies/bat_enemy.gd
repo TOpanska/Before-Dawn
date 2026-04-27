@@ -21,6 +21,8 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.length() > 0:
 		animated_sprite.play("fly")
+	else:
+		animated_sprite.play("idle")
 		
 	if velocity.x > 0:
 		animated_sprite.flip_h = true

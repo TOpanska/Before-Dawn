@@ -1,14 +1,14 @@
 extends Control
 
 @onready var buttons: VBoxContainer = $VBoxContainer
-@onready var options: Panel = $Panel
+@onready var settings: Panel = $Settings
 @onready var controls: Panel = $Controls
 @onready var label: Label = $Label
 
 
 func _ready() -> void:
 	buttons.visible = true
-	options.visible = false
+	settings.visible = false
 	label.visible = true
 	controls.visible = false
 
@@ -23,7 +23,7 @@ func _on_button_play_pressed() -> void:
 
 func _on_button_settings_pressed() -> void:
 	buttons.visible = false
-	options.visible = true
+	settings.visible = true
 	label.visible = false
 	
 func _on_button_exit_pressed() -> void:
@@ -32,15 +32,15 @@ func _on_button_exit_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	buttons.visible = true
-	options.visible = false
+	settings.visible = false
 	label.visible = true
 
 
 func _on_controls_pressed() -> void:
-	options.visible = false
+	settings.visible = false
 	controls.visible = true
 
 
 func _on_back_2_pressed() -> void:
-	options.visible = true
+	settings.visible = true
 	controls.visible = false
