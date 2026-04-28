@@ -3,11 +3,16 @@ class_name EnemyFollow extends State
 @export var enemy: CharacterBody2D
 @export var move_speed := 25.0
 @export var attack_range := 30.0
+@onready var hitbox: Hitbox = $"../../Hitbox"
+	
 
 var player: CharacterBody2D
 var direction
 
 func Enter():
+	if hitbox:
+		hitbox.monitoring = false
+		
 	player = get_tree().get_first_node_in_group("player")
 	
 func Physics_Update(_delta: float):

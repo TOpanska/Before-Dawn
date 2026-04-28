@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b0ot8vlqi4yiw"]
+
+[ext_resource type="Texture2D" uid="uid://dayqr4wlgm61" path="res://Assets/gfx/GUI/heart.png" id="1_herul"]
+[ext_resource type="Script" uid="uid://b080lvjpytxbj" path="res://Scripts/UI_Related/heart_bar.gd" id="1_tmta2"]
+
+[node name="HeartBar" type="CanvasLayer" unique_id=524637197]
+script = ExtResource("1_tmta2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=505625458]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 62.0
+offset_bottom = 14.0
+
+[node name="heart1" type="TextureRect" parent="HBoxContainer" unique_id=1095508355]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/heart1" unique_id=70857620]
+position = Vector2(4, 4)
+texture = ExtResource("1_herul")
+
+[node name="heart2" type="TextureRect" parent="HBoxContainer" unique_id=662184320]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/heart2" unique_id=395298232]
+position = Vector2(10, 4)
+texture = ExtResource("1_herul")
+
+[node name="heart3" type="TextureRect" parent="HBoxContainer" unique_id=1291387630]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/heart3" unique_id=226547303]
+position = Vector2(16, 4)
+texture = ExtResource("1_herul")
+
+[node name="heart4" type="TextureRect" parent="HBoxContainer" unique_id=60838578]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/heart4" unique_id=1357685150]
+position = Vector2(22, 4)
+texture = ExtResource("1_herul")
+
+[node name="heart5" type="TextureRect" parent="HBoxContainer" unique_id=1887233062]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/heart5" unique_id=655013153]
+position = Vector2(28, 4)
+texture = ExtResource("1_herul")
+
+[node name="heart6" type="TextureRect" parent="HBoxContainer" unique_id=893117073]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/heart6" unique_id=735935669]
+position = Vector2(34, 4)
+texture = ExtResource("1_herul")

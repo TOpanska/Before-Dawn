@@ -259,7 +259,6 @@ autoplay = "menu_art"
 frame_progress = 0.41546974
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=807279430]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -310,7 +309,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
 text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=856826732]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -331,6 +329,7 @@ theme_override_font_sizes/font_size = 22
 text = "Before Dawn"
 
 [node name="Settings" type="Panel" parent="." unique_id=797060273]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

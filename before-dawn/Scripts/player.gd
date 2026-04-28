@@ -7,8 +7,11 @@ const JUMP_VELOCITY = -290.0
 
 var is_attacking := false
 
+var health : int
+
 func _ready():
-	#add_to_group("player")
+	add_to_group("player")
+	health = PlayerManager.health
 	NavManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _process(delta: float) -> void:
@@ -16,15 +19,14 @@ func _process(delta: float) -> void:
 
 func _handle_attacking() -> void:
 	if Input.is_action_just_pressed("SWING") and not is_attacking and is_on_floor():
-		attack_hitbox.enable()
-		await get_tree().create_timer(0.2).timeout
-		attack_hitbox.disable()
 		
 		is_attacking = true
+		attack_hitbox.enable()
 		animated_sprite.play("attack")
 		await animated_sprite.animation_finished
 		is_attacking = false
-	
+		attack_hitbox.disable()
+
 func _physics_process(delta: float) -> void:
 	if is_attacking:
 		# Stop horizontal movement during attack
@@ -65,3 +67,18 @@ func _physics_process(delta: float) -> void:
 
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area is Hitbox:
+		health -= 1
+		
+		PlayerManager.take_damage(health)
+		
+		animated_sprite.modulate = Color(1, 0, 0, 1)
+		await get_tree().create_timer(0.5).timeout
+		animated_sprite.modulate = Color(1, 1, 1, 1)
+		
+		if health <= 0:
+			PlayerManager.kill();
+			print("oh no i am so very dead X-x")

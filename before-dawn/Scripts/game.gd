@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	pass
+	$GlobalTimer.timeout.connect(PlayerManager.kill)
 
 
 func _process(delta: float) -> void:

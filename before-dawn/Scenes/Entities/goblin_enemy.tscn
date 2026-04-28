@@ -143,6 +143,7 @@ script = ExtResource("7_oo8mk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=756555045]
 position = Vector2(6.5, 0.5)
 shape = SubResource("RectangleShape2D_d2gqx")
+disabled = true
 debug_color = Color(0.22754276, 0.6347974, 0.19995582, 0.41960785)
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

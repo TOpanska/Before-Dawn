@@ -1,11 +1,12 @@
 extends Area2D
 
 @export var damage := 1
+@onready var collision_shape := $CollisionShape2D
 
 var can_damage := true
 
 func _ready():
-	monitoring = false
+	collision_shape.disabled = true
 	add_to_group("player_attack")
 	body_entered.connect(_on_body_entered)
 	area_entered.connect(_on_area_entered)
@@ -23,9 +24,9 @@ func _on_area_entered(area):
 			can_damage = false
 
 func enable():
-	monitoring = true
+	collision_shape.disabled = false
 	can_damage = true
 
 func disable():
-	monitoring = false
+	collision_shape.disabled = true
 	can_damage = false

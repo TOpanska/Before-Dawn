@@ -7,7 +7,7 @@
 script = ExtResource("1_qxrlw")
 
 [node name="GlobalTimer" type="Timer" parent="." unique_id=368482138]
-wait_time = 999999.0
+wait_time = 20.0
 autostart = true
 
 [node name="ForestMap" parent="." unique_id=1847392461 instance=ExtResource("2_wrm1d")]
@@ -16,13 +16,9 @@ autostart = true
 position = Vector2(46, 119)
 
 [node name="Door_Meadow" parent="ForestMap/Doors" parent_id_path=PackedInt32Array(1847392461, 751253187) index="1" unique_id=768380864]
-monitoring = false
 destination_level_tag = ""
 destination_door_tag = ""
 spawn_direction = ""
-
-[node name="CollisionShape2D" parent="ForestMap/Doors/Door_Meadow" index="0" unique_id=1625670170]
-disabled = false
 
 [editable path="ForestMap"]
 [editable path="ForestMap/Doors/Door_Cave"]

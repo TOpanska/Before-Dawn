@@ -23,10 +23,13 @@
 [ext_resource type="PackedScene" uid="uid://dns5j5cfvbm15" path="res://Scenes/dialogue_interaction.tscn" id="21_n7ij6"]
 [ext_resource type="Script" uid="uid://bsw880kyxeail" path="res://Scripts/DialogueSystem/dialogue_text.gd" id="22_43gc4"]
 [ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/Entities/player.tscn" id="23_fqeyt"]
+[ext_resource type="Script" uid="uid://camb41kvbnalv" path="res://Scripts/DialogueSystem/dialogue_choice.gd" id="23_whvu8"]
 [ext_resource type="Script" uid="uid://ctbk0tycn3cie" path="res://Scripts/cave_entrance.gd" id="24_c5dge"]
+[ext_resource type="Script" uid="uid://xk72pbshe2yk" path="res://Scripts/DialogueSystem/dialogue_branch.gd" id="24_d7jj2"]
 [ext_resource type="PackedScene" uid="uid://bqmucvkv6bpal" path="res://Scenes/door.tscn" id="25_k237y"]
 [ext_resource type="PackedScene" uid="uid://dp36ortes6hu" path="res://Scenes/Entities/goblin_enemy.tscn" id="26_i4c2h"]
-[ext_resource type="Texture2D" uid="uid://ceer1lgkdxa77" path="res://Assets/gfx/Decor/collectible.png" id="27_e4low"]
+[ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="29_whvu8"]
+[ext_resource type="Script" uid="uid://cfgp16qrw7vn3" path="res://Scripts/UI_Related/in_game_warning.gd" id="30_d7jj2"]
 
 [sub_resource type="Environment" id="Environment_a26ea"]
 background_mode = 3
@@ -239,8 +242,8 @@ colors = PackedColorArray(0, 0, 0, 1, 0.07058824, 0.07058824, 0.07058824, 0, 1, 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ee4r6"]
 gradient = SubResource("Gradient_a26ea")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_e4low"]
-radius = 46.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7jj2"]
+size = Vector2(83, 74)
 
 [node name="ForestMap" type="Node2D" unique_id=1847392461]
 script = ExtResource("1_frgff")
@@ -650,6 +653,44 @@ text = "Thanks, you too Ele."
 npc_info = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
+[node name="DialogueText7" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1151194360]
+script = ExtResource("22_43gc4")
+text = "How are you?"
+npc_info = "Elenor"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueChoice" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=294937695]
+script = ExtResource("23_whvu8")
+metadata/_custom_type_script = "uid://camb41kvbnalv"
+
+[node name="DialogueBranch" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice" unique_id=939469508]
+script = ExtResource("24_d7jj2")
+text = "Not well..."
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice/DialogueBranch" unique_id=197854946]
+script = ExtResource("22_43gc4")
+text = "Oh, no!"
+npc_info = "Elenor"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText2" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice/DialogueBranch" unique_id=586835484]
+script = ExtResource("22_43gc4")
+text = "I'll be fine."
+npc_info = "Varek"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice" unique_id=560940574]
+script = ExtResource("24_d7jj2")
+text = "GOOD!"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice/DialogueBranch2" unique_id=1104199283]
+script = ExtResource("22_43gc4")
+text = "I'm happy!"
+npc_info = "Elenor"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
 [node name="Player" parent="." unique_id=1453306990 instance=ExtResource("23_fqeyt")]
 position = Vector2(33, 117)
 
@@ -700,17 +741,27 @@ position = Vector2(981, 70)
 [node name="GoblinEnemy2" parent="Enemies" unique_id=1848234627 instance=ExtResource("26_i4c2h")]
 position = Vector2(1326, 55)
 
-[node name="AmuletWarning" type="Sprite2D" parent="." unique_id=1524116959 groups=["warnings"]]
-position = Vector2(1840, -64)
-texture = ExtResource("27_e4low")
-script = ExtResource("17_so4wm")
+[node name="AmuletWarning" type="Label" parent="." unique_id=451920626 groups=["warnings"]]
+offset_left = 1752.0
+offset_top = -85.0
+offset_right = 1860.0
+offset_bottom = -60.0
+theme_override_fonts/font = ExtResource("29_whvu8")
+theme_override_font_sizes/font_size = 10
+text = "I should find my amulet
+before leaving the forest..."
+horizontal_alignment = 1
+script = ExtResource("30_d7jj2")
 
 [node name="Area2D" type="Area2D" parent="AmuletWarning" unique_id=1190021299]
 position = Vector2(-1840, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AmuletWarning/Area2D" unique_id=1089501141]
-position = Vector2(1840, -64)
-shape = SubResource("CircleShape2D_e4low")
+position = Vector2(1892.5, -43)
+shape = SubResource("RectangleShape2D_d7jj2")
+
+[node name="GoblinEnemy" parent="." unique_id=777355793 instance=ExtResource("26_i4c2h")]
+position = Vector2(157, 118)
 
 [editable path="Doors/Door_Cave"]
 [editable path="Doors/Door_Meadow"]

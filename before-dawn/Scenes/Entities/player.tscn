@@ -211,6 +211,7 @@ script = ExtResource("4_vgqql")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=790397250]
 position = Vector2(13.5, -1)
 shape = SubResource("RectangleShape2D_vgqql")
+disabled = true
 debug_color = Color(0.18114832, 0.64312917, 0, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=721493400]
@@ -222,3 +223,4 @@ debug_color = Color(1, 0.012358605, 0.049005166, 0.41960785)
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

@@ -39,14 +39,6 @@ func _physics_process(delta: float) -> void:
 	
 	last_velocity = velocity
 
-func enable_hitbox():
-	if hitbox:
-		hitbox.monitoring = true
-
-func disable_hitbox():
-	if hitbox:
-		hitbox.monitoring = false
-
 func take_damage(amount: int):
 	current_health -= amount
 	

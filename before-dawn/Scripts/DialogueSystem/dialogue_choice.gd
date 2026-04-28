@@ -1,12 +1,20 @@
 class_name DialogueChoice extends DialogueItem
 
-@export var choices : Array[String] = ["Yes", "No"]
+var dialogue_branches : Array[DialogueBranch]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for c in get_children():
+		if c is DialogueBranch:
+			dialogue_branches.append(c)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _check_for_branches()	-> bool:
+	var _count = 0
+	
+	for c in get_children():
+		if c is DialogueBranch:
+			_count += 1
+			if _count > 1:
+				return true
+			
+	return false

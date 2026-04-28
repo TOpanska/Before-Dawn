@@ -3,6 +3,8 @@ extends Node
 const scene_forest = preload("res://Scenes/Maps/forest_map.tscn")
 const scene_cave = preload("res://Scenes/Maps/cave_map.tscn")
 const scene_meadow = preload("res://Scenes/Maps/meadow_map.tscn")
+const scene_home = preload("res://Scenes/Maps/home_map.tscn")
+
 
 signal on_trigger_player_spawn
 
@@ -25,12 +27,17 @@ func go_to_level(level_tag, destination_tag):
 		"Meadow":
 			scene_to_load = scene_meadow
 			camera_limit_left = 0
+			camera_limit_right = 1750
+		"Home":
+			scene_to_load = scene_home
+			camera_limit_left = 0
+			camera_limit_right = 1130
 		
 	if scene_to_load != null:
 		spawn_door_tag = destination_tag
-		var current_scene = get_tree().root.get_child(3).get_child(1)
+		var current_scene = get_node("/root/Game/").get_child(1)
 		current_scene.queue_free()
-		get_tree().root.get_child(3).add_child(scene_to_load.instantiate())
+		get_node("/root/Game/").add_child(scene_to_load.instantiate())
 		
 
 	var camera = get_tree().get_nodes_in_group("camera")[1]
