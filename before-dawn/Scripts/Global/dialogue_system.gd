@@ -4,6 +4,8 @@ var is_active := false
 var waiting_for_choice : bool = false
 
 signal finished
+signal correctly_answered
+signal dialogue_ended
 var dialogue_items : Array[DialogueItem]
 var dialogue_item_index := 0
 
@@ -30,7 +32,9 @@ func _input(event: InputEvent) -> void:
 			return
 		
 		dialogue_item_index += 1
-		if dialogue_item_index	 < dialogue_items.size():
+		if dialogue_item_index == dialogue_items.size() - 1:
+			dialogue_ended.emit()
+		if dialogue_item_index < dialogue_items.size():
 			start_dialogue()
 		else:
 			hide_dialogue()
@@ -41,7 +45,7 @@ func show_dialogue(_items : Array[DialogueItem]) -> void:
 	is_active = true
 	dialogue_ui.visible = true
 	dialogue_ui.process_mode = Node.PROCESS_MODE_ALWAYS
-	dialogue_items = _items
+	dialogue_items = _items + dialogue_items.slice(dialogue_item_index+1)
 	dialogue_item_index = 0
 	get_tree().paused = true
 	
@@ -98,5 +102,7 @@ func set_dialogue_choice(_d) -> void:
 
 func _dialogue_choice_selected(_d : DialogueBranch) -> void:
 	choice_options.visible = false
+	if _d.is_correct_answer:
+		correctly_answered.emit()
 	show_dialogue(_d.dialogue_items)
 	pass

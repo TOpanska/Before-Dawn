@@ -19,13 +19,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_play_pressed() -> void:
-	var heart_bar = load("res://Scenes/heart_bar.tscn").instantiate()
-	
-	get_node("/root/").add_child(heart_bar)
-	PlayerManager.health_change.connect(heart_bar.update_hearts)
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
-	print(get_tree())
-	
 
 func _on_button_settings_pressed() -> void:
 	buttons.visible = false

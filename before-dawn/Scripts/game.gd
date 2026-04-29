@@ -2,6 +2,10 @@ extends Node2D
 
 func _ready() -> void:
 	$GlobalTimer.timeout.connect(PlayerManager.kill)
+	
+	var HUD = load("res://Scenes/hud.tscn").instantiate()
+	get_node("/root/").add_child(HUD)
+	PlayerManager.health_change.connect(HUD.update_hearts)
 
 
 func _process(delta: float) -> void:

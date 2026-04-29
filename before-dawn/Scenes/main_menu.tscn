@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmxfg5xd5r3q3" path="res://Assets/gfx/GUI/space.png" id="7_16hvj"]
 [ext_resource type="Texture2D" uid="uid://delwxdqq3aftb" path="res://Assets/gfx/GUI/wasd.png" id="8_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://fftet5i1vghk" path="res://Assets/gfx/GUI/mouse_left.png" id="9_trj04"]
+[ext_resource type="AudioStream" uid="uid://y1ib6evpx0uo" path="res://Assets/Sounds/Music/menu_win_music.ogg" id="11_vr1f0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
 atlas = ExtResource("2_n45e2")
@@ -259,6 +260,7 @@ autoplay = "menu_art"
 frame_progress = 0.41546974
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=807279430]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -309,6 +311,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
 text = "Exit"
 
 [node name="Label" type="Label" parent="." unique_id=856826732]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -329,7 +332,6 @@ theme_override_font_sizes/font_size = 22
 text = "Before Dawn"
 
 [node name="Settings" type="Panel" parent="." unique_id=797060273]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -404,7 +406,7 @@ offset_top = 44.0
 offset_right = 189.0
 offset_bottom = 68.0
 theme_override_fonts/font = ExtResource("2_1ehe0")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 13
 text = "Fullscreen"
 script = ExtResource("5_16hvj")
 
@@ -564,6 +566,12 @@ offset_bottom = 28.0
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 13
 text = "Controller"
+
+[node name="MenuWinMusic" type="AudioStreamPlayer2D" parent="." unique_id=1189052042]
+position = Vector2(-13, 129)
+stream = ExtResource("11_vr1f0")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]

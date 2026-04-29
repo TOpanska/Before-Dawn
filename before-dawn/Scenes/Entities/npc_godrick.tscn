@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://cy8fel80bhvh6"]
+
+[ext_resource type="Script" uid="uid://dcwqjhy0ht3n4" path="res://Scripts/npc_godrick.gd" id="1_ely8j"]
+[ext_resource type="Texture2D" uid="uid://dahayyl7cwmcl" path="res://Assets/gfx/Entities/goblin_godrick_sheet.png" id="1_nviym"]
+[ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scripts/hurtbox.gd" id="2_job6b"]
+[ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="3_0a3qn"]
+[ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="4_0a3qn"]
+[ext_resource type="Script" uid="uid://bsed2ipxxrtcb" path="res://Scripts/StateMachine/enemy_follow.gd" id="6_oo60u"]
+[ext_resource type="Script" uid="uid://dembenjmkmv5j" path="res://Scripts/StateMachine/enemy_attack.gd" id="7_154ei"]
+[ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/StateMachine/enemy_walk.gd" id="8_154ei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iomvs"]
+atlas = ExtResource("1_nviym")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_job6b"]
+atlas = ExtResource("1_nviym")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a3qn"]
+atlas = ExtResource("1_nviym")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ely8j"]
+atlas = ExtResource("1_nviym")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q80fc"]
+atlas = ExtResource("1_nviym")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo60u"]
+atlas = ExtResource("1_nviym")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_154ei"]
+atlas = ExtResource("1_nviym")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqaok"]
+atlas = ExtResource("1_nviym")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mgf6"]
+atlas = ExtResource("1_nviym")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_588c8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iomvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_job6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a3qn")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ely8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q80fc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo60u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_154ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqaok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mgf6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ely8j"]
+size = Vector2(22, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q80fc"]
+size = Vector2(15, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo60u"]
+size = Vector2(11, 22)
+
+[node name="NPCGodrick" type="CharacterBody2D" unique_id=972503082]
+script = ExtResource("1_ely8j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1246199651]
+sprite_frames = SubResource("SpriteFrames_588c8")
+animation = &"attack"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.6581739
+flip_h = true
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=559060043]
+script = ExtResource("2_job6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1850262629]
+position = Vector2(-4, 0.5)
+shape = SubResource("RectangleShape2D_ely8j")
+debug_color = Color(0.9966672, 0, 0.19118297, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=480441274]
+script = ExtResource("3_0a3qn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1051816300]
+position = Vector2(6.5, 0.5)
+shape = SubResource("RectangleShape2D_q80fc")
+disabled = true
+debug_color = Color(0.22754276, 0.6347974, 0.19995582, 0.41960785)
+
+[node name="PhysicsCollision" type="CollisionShape2D" parent="." unique_id=1867403970]
+position = Vector2(-4.5, 1)
+shape = SubResource("RectangleShape2D_oo60u")
+
+[node name="StateMachine" type="Node" parent="." unique_id=195259243 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_0a3qn")
+initial_state = NodePath("")
+
+[node name="EnemyFollow" type="Node" parent="StateMachine" unique_id=1321581774 node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_oo60u")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bsed2ipxxrtcb"
+
+[node name="EnemyAttack" type="Node" parent="StateMachine" unique_id=2145870132 node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_154ei")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://dembenjmkmv5j"
+
+[node name="EnemyWalk" type="Node" parent="StateMachine" unique_id=1388900520 node_paths=PackedStringArray("player")]
+script = ExtResource("8_154ei")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://dpwe1lv6eowwk"
+
+[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]

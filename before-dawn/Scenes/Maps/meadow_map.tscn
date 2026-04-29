@@ -14,6 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://bxb0e0r5xyx6d" path="res://Assets/gfx/Decor/light.png" id="9_0xm81"]
 [ext_resource type="PackedScene" uid="uid://bqmucvkv6bpal" path="res://Scenes/door.tscn" id="10_we444"]
 [ext_resource type="PackedScene" uid="uid://dp36ortes6hu" path="res://Scenes/Entities/goblin_enemy.tscn" id="11_rhd15"]
+[ext_resource type="PackedScene" uid="uid://cy8fel80bhvh6" path="res://Scenes/Entities/npc_godrick.tscn" id="15_0xm81"]
+[ext_resource type="PackedScene" uid="uid://dns5j5cfvbm15" path="res://Scenes/dialogue_interaction.tscn" id="16_g864q"]
+[ext_resource type="Script" uid="uid://bsw880kyxeail" path="res://Scripts/DialogueSystem/dialogue_text.gd" id="17_uo8jm"]
+[ext_resource type="Script" uid="uid://camb41kvbnalv" path="res://Scripts/DialogueSystem/dialogue_choice.gd" id="18_g864q"]
+[ext_resource type="Script" uid="uid://xk72pbshe2yk" path="res://Scripts/DialogueSystem/dialogue_branch.gd" id="19_0eb4c"]
+[ext_resource type="Script" uid="uid://dedbmfstgahr2" path="res://Scripts/godrick_wall.gd" id="20_0eb4c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_we444"]
 shader = ExtResource("5_ju1qg")
@@ -197,6 +203,9 @@ texture = ExtResource("8_sxo3u")
 
 [sub_resource type="TileSet" id="TileSet_jnoqm"]
 sources/0 = SubResource("TileSetAtlasSource_jnoqm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g864q"]
+size = Vector2(20, 102)
 
 [node name="MeadowMap" type="Node2D" unique_id=1634201873]
 script = ExtResource("1_i15we")
@@ -434,6 +443,144 @@ position = Vector2(910, 166)
 
 [node name="GoblinEnemy5" parent="Enemies" unique_id=1183487877 instance=ExtResource("11_rhd15")]
 position = Vector2(847, 166)
+
+[node name="npc_godrick" parent="." unique_id=972503082 instance=ExtResource("15_0xm81")]
+position = Vector2(1149, 151)
+
+[node name="DialogueInteraction2" parent="npc_godrick" unique_id=836996665 instance=ExtResource("16_g864q")]
+visible = false
+
+[node name="DialogueText" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=774030812]
+script = ExtResource("17_uo8jm")
+text = "Hello. I give quiz"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText2" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=1855738502]
+script = ExtResource("17_uo8jm")
+text = "You have 5 minutes to attempt. One attempt only"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText3" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=621882439]
+script = ExtResource("17_uo8jm")
+text = "Yay i love quizes."
+npc_info = "Varek"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=1917002956]
+script = ExtResource("17_uo8jm")
+text = "Question 1: boogers or pimples"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueChoice" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=1011132336]
+script = ExtResource("18_g864q")
+metadata/_custom_type_script = "uid://camb41kvbnalv"
+
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice" unique_id=1170100236]
+script = ExtResource("19_0eb4c")
+text = "Boogers"
+is_correct_answer = true
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice/DialogueBranch" unique_id=902153570]
+script = ExtResource("17_uo8jm")
+text = "MMM tasty"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice" unique_id=226350142]
+script = ExtResource("19_0eb4c")
+text = "pimples..."
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice/DialogueBranch2" unique_id=828247808]
+script = ExtResource("17_uo8jm")
+text = "hmmm... i see"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText5" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=1316962257]
+script = ExtResource("17_uo8jm")
+text = "Question 2: gugu or gaga"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueChoice2" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=1533718055]
+script = ExtResource("18_g864q")
+metadata/_custom_type_script = "uid://camb41kvbnalv"
+
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice2" unique_id=550862277]
+script = ExtResource("19_0eb4c")
+text = "gugu"
+is_correct_answer = true
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice2/DialogueBranch" unique_id=2052462729]
+script = ExtResource("17_uo8jm")
+text = "hmmm... i see"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice2" unique_id=1668202213]
+script = ExtResource("19_0eb4c")
+text = "gege"
+is_correct_answer = true
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice2/DialogueBranch2" unique_id=1738012030]
+script = ExtResource("17_uo8jm")
+text = "Terryfying"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText6" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=1130283341]
+script = ExtResource("17_uo8jm")
+text = "Question 3: habadi or gigigi"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueChoice3" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=119697210]
+script = ExtResource("18_g864q")
+metadata/_custom_type_script = "uid://camb41kvbnalv"
+
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice3" unique_id=1642897749]
+script = ExtResource("19_0eb4c")
+text = "habadi"
+is_correct_answer = true
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice3/DialogueBranch" unique_id=1544975915]
+script = ExtResource("17_uo8jm")
+text = "gugugaga"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice3" unique_id=1645524801]
+script = ExtResource("19_0eb4c")
+text = "gigigi"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction2/DialogueChoice3/DialogueBranch2" unique_id=589321090]
+script = ExtResource("17_uo8jm")
+text = "hehe gege"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="LastDialogueItem" type="Node" parent="npc_godrick/DialogueInteraction2" unique_id=931640257]
+script = ExtResource("17_uo8jm")
+text = "MIBOMBO"
+npc_info = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="GodrickWall" type="StaticBody2D" parent="." unique_id=261781243]
+position = Vector2(1163, 119)
+script = ExtResource("20_0eb4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GodrickWall" unique_id=331456249]
+position = Vector2(21, -6)
+shape = SubResource("RectangleShape2D_g864q")
 
 [editable path="Doors/Door_Forest"]
 [editable path="Doors/Door_Forest2"]

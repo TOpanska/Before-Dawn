@@ -81,4 +81,3 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		
 		if health <= 0:
 			PlayerManager.kill();
-			print("oh no i am so very dead X-x")

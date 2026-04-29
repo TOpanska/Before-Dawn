@@ -1,6 +1,7 @@
 class_name DialogueBranch extends DialogueItem
 
 @export var text : String = "placeholder..."
+@export var is_correct_answer : bool = false
 
 var dialogue_items : Array [DialogueItem]
 

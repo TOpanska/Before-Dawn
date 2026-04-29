@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://doms306xut6jw" path="res://Assets/gfx/GUI/text_box.png" id="1_b43ja"]
 [ext_resource type="Script" uid="uid://dscnm4o62mpq6" path="res://Scripts/Global/dialogue_system.gd" id="1_i2efg"]
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_tgreg"]
+[ext_resource type="FontFile" uid="uid://q1g011iuncag" path="res://Assets/Fonts/ari-w9500.ttf" id="3_drpe7"]
 [ext_resource type="Texture2D" uid="uid://dxjdbfmn6xw2p" path="res://Assets/gfx/Portraits/Elenor_Portrait.png" id="4_i2efg"]
 
 [sub_resource type="Gradient" id="Gradient_i2efg"]
@@ -73,8 +74,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_wkns5")
 light_mask = 2
 layout_mode = 2
 theme_override_colors/default_color = Color(0.4392157, 0.39607844, 0.32156864, 1)
-theme_override_fonts/normal_font = ExtResource("2_tgreg")
-theme_override_font_sizes/normal_font_size = 12
+theme_override_constants/line_separation = 3
+theme_override_fonts/normal_font = ExtResource("3_drpe7")
+theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
 text = "Example Text
 [wave]No way[/wave]
@@ -113,15 +115,18 @@ alignment = 1
 
 [node name="Button" type="Button" parent="DialogueUI/Choices" unique_id=1270877175]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_drpe7")
 text = "Choice 1..."
 alignment = 0
 
 [node name="Button2" type="Button" parent="DialogueUI/Choices" unique_id=873391939]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_drpe7")
 text = "Choice 1..."
 alignment = 0
 
 [node name="Button3" type="Button" parent="DialogueUI/Choices" unique_id=837352367]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_drpe7")
 text = "Choice 1..."
 alignment = 0
