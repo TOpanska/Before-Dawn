@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dns5j5cfvbm15"]
 
 [ext_resource type="Script" uid="uid://c0a8ekyvgk07m" path="res://Scripts/DialogueSystem/dialogue_interaction.gd" id="1_0v1s3"]
-[ext_resource type="Texture2D" uid="uid://cefqsyx0y1r6e" path="res://Assets/gfx/GUI/dialogue_notification.png" id="2_0v1s3"]
+[ext_resource type="Texture2D" uid="uid://cefqsyx0y1r6e" path="res://Assets/GFX/GUI/dialogue_notification.png" id="2_0v1s3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5bf1"]
 size = Vector2(50, 50)
@@ -141,3 +141,6 @@ texture = ExtResource("2_0v1s3")
 process_mode = 3
 libraries/ = SubResource("AnimationLibrary_c7q0h")
 autoplay = &"default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://k4568sdktqa7"]
 
-[ext_resource type="Script" uid="uid://dj0vcwakf5cb6" path="res://Scripts/player.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://c6i7wk124ox5p" path="res://Assets/gfx/Entities/character_sheet.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://dj0vcwakf5cb6" path="res://Scripts/Entities/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://c6i7wk124ox5p" path="res://Assets/GFX/Entities/character_sheet.png" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://c8k71ns485jip" path="res://Scripts/camera_2d.gd" id="3_6t5aa"]
-[ext_resource type="Script" uid="uid://bnijkcmib5rpp" path="res://Scripts/player_attack.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://bnijkcmib5rpp" path="res://Scripts/Entities/player_attack.gd" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")

@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://dyc4hahwcjiw6"]
 
-[ext_resource type="Texture2D" uid="uid://cwccqa2x04bgr" path="res://Assets/gfx/Tiles/additional_tiles.png" id="1_130tx"]
-[ext_resource type="Texture2D" uid="uid://fb7xgjvtv76t" path="res://Assets/gfx/Tiles/meadow_tileset.png" id="2_c7r73"]
+[ext_resource type="Texture2D" uid="uid://cwccqa2x04bgr" path="res://Assets/GFX/Tiles/additional_tiles.png" id="1_130tx"]
+[ext_resource type="Texture2D" uid="uid://fb7xgjvtv76t" path="res://Assets/GFX/Tiles/meadow_tileset.png" id="2_c7r73"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fng16"]
 polygon = PackedVector2Array(-4, -4, 8, -4, 8, 8, -4, 8, -4, 8, -4, -4)

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://l4r25pslxtog"]
 
-[ext_resource type="Texture2D" uid="uid://doms306xut6jw" path="res://Assets/gfx/GUI/text_box.png" id="1_b43ja"]
+[ext_resource type="Texture2D" uid="uid://doms306xut6jw" path="res://Assets/GFX/GUI/text_box.png" id="1_b43ja"]
 [ext_resource type="Script" uid="uid://dscnm4o62mpq6" path="res://Scripts/Global/dialogue_system.gd" id="1_i2efg"]
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_tgreg"]
 [ext_resource type="FontFile" uid="uid://q1g011iuncag" path="res://Assets/Fonts/ari-w9500.ttf" id="3_drpe7"]
-[ext_resource type="Texture2D" uid="uid://dxjdbfmn6xw2p" path="res://Assets/gfx/Portraits/Elenor_Portrait.png" id="4_i2efg"]
+[ext_resource type="Texture2D" uid="uid://dxjdbfmn6xw2p" path="res://Assets/GFX/Portraits/Elenor_Portrait.png" id="4_i2efg"]
 
 [sub_resource type="Gradient" id="Gradient_i2efg"]
 colors = PackedColorArray(0.5163938, 0.5163938, 0.5163937, 1, 1, 1, 1, 0)

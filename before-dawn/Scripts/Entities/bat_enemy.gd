@@ -37,12 +37,13 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount: int):
 	current_health -= amount
 	
+	if current_health <= 0:
+		die()
+		
 	animated_sprite.modulate =  Color(2, 2, 2, 1)
 	await get_tree().create_timer(0.5).timeout
 	animated_sprite.modulate = Color(1, 1, 1, 1)
 	
-	if current_health <= 0:
-		die()
 
 func die():
 	queue_free()

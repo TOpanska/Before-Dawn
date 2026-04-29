@@ -2,34 +2,33 @@
 
 [ext_resource type="Script" uid="uid://dc5nc1lr0xrqe" path="res://Scripts/level.gd" id="1_frgff"]
 [ext_resource type="Shader" uid="uid://c62b1k0l2pd4i" path="res://Assets/Shaders/sky_shader.gdshader" id="2_e4low"]
-[ext_resource type="Texture2D" uid="uid://skhaqle4rg33" path="res://Assets/gfx/Decor/sun.png" id="3_2xhrm"]
-[ext_resource type="Texture2D" uid="uid://cnyftuqst4nir" path="res://Assets/gfx/Backgrounds/map1_bg_layer3.png" id="4_whvu8"]
-[ext_resource type="Texture2D" uid="uid://cwk4to2jbxlff" path="res://Assets/gfx/Backgrounds/map1_bg_layer2.png" id="5_d7jj2"]
-[ext_resource type="Texture2D" uid="uid://b474nqx5t8fvv" path="res://Assets/gfx/Backgrounds/map1_bg_layer1.png" id="6_1ojrl"]
-[ext_resource type="Texture2D" uid="uid://dw7nys748tpbh" path="res://Assets/gfx/Decor/decor.png" id="7_whvu8"]
-[ext_resource type="Texture2D" uid="uid://c8qmny3ugamrb" path="res://Assets/gfx/Decor/tree1.png" id="9_i6dlh"]
-[ext_resource type="Texture2D" uid="uid://c7tk65wiptwx4" path="res://Assets/gfx/Decor/tree2.png" id="10_g5s1p"]
-[ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/gfx/Decor/lantern.png" id="12_qy46k"]
-[ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/gfx/Decor/light2.png" id="13_cdhqh"]
-[ext_resource type="Texture2D" uid="uid://c40yld6qy2jy1" path="res://Assets/gfx/Decor/flower1.png" id="14_ci3ym"]
-[ext_resource type="Texture2D" uid="uid://bxb0e0r5xyx6d" path="res://Assets/gfx/Decor/light.png" id="15_3xk10"]
-[ext_resource type="Texture2D" uid="uid://cgtumn8ex5jy0" path="res://Assets/gfx/GUI/movement_controls.png" id="16_fkqde"]
+[ext_resource type="Texture2D" uid="uid://skhaqle4rg33" path="res://Assets/GFX/Decor/sun.png" id="3_2xhrm"]
+[ext_resource type="Texture2D" uid="uid://cnyftuqst4nir" path="res://Assets/GFX/Backgrounds/map1_bg_layer3.png" id="4_whvu8"]
+[ext_resource type="Texture2D" uid="uid://cwk4to2jbxlff" path="res://Assets/GFX/Backgrounds/map1_bg_layer2.png" id="5_d7jj2"]
+[ext_resource type="Texture2D" uid="uid://b474nqx5t8fvv" path="res://Assets/GFX/Backgrounds/map1_bg_layer1.png" id="6_1ojrl"]
+[ext_resource type="Texture2D" uid="uid://dw7nys748tpbh" path="res://Assets/GFX/Decor/decor.png" id="7_whvu8"]
+[ext_resource type="Texture2D" uid="uid://c8qmny3ugamrb" path="res://Assets/GFX/Decor/tree1.png" id="9_i6dlh"]
+[ext_resource type="Texture2D" uid="uid://c7tk65wiptwx4" path="res://Assets/GFX/Decor/tree2.png" id="10_g5s1p"]
+[ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/GFX/Decor/lantern.png" id="12_qy46k"]
+[ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/GFX/Decor/light2.png" id="13_cdhqh"]
+[ext_resource type="Texture2D" uid="uid://c40yld6qy2jy1" path="res://Assets/GFX/Decor/flower1.png" id="14_ci3ym"]
+[ext_resource type="Texture2D" uid="uid://bxb0e0r5xyx6d" path="res://Assets/GFX/Decor/light.png" id="15_3xk10"]
+[ext_resource type="Texture2D" uid="uid://cgtumn8ex5jy0" path="res://Assets/GFX/GUI/movement_controls.png" id="16_fkqde"]
 [ext_resource type="Script" uid="uid://cgk7p0xd0roaq" path="res://Scripts/UI_Related/control_labels.gd" id="17_so4wm"]
-[ext_resource type="Texture2D" uid="uid://gaahg42tphpr" path="res://Assets/gfx/GUI/jump_control.png" id="18_fo1xs"]
-[ext_resource type="Texture2D" uid="uid://bma12kd8y25oo" path="res://Assets/gfx/GUI/interact_control.png" id="19_2xhrm"]
-[ext_resource type="TileSet" uid="uid://dyc4hahwcjiw6" path="res://Assets/gfx/Tiles/forest_tileset.tres" id="19_o8xkt"]
+[ext_resource type="Texture2D" uid="uid://gaahg42tphpr" path="res://Assets/GFX/GUI/jump_control.png" id="18_fo1xs"]
+[ext_resource type="Texture2D" uid="uid://bma12kd8y25oo" path="res://Assets/GFX/GUI/interact_control.png" id="19_2xhrm"]
+[ext_resource type="TileSet" uid="uid://dyc4hahwcjiw6" path="res://Assets/GFX/Tiles/forest_tileset.tres" id="19_o8xkt"]
 [ext_resource type="PackedScene" uid="uid://c4ld4lrdscfbj" path="res://Scenes/Entities/npc_elenor.tscn" id="20_7unj1"]
-[ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/gfx/GUI/attack_control.png" id="20_whvu8"]
-[ext_resource type="PackedScene" uid="uid://dns5j5cfvbm15" path="res://Scenes/dialogue_interaction.tscn" id="21_n7ij6"]
+[ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/GFX/GUI/attack_control.png" id="20_whvu8"]
+[ext_resource type="PackedScene" uid="uid://dns5j5cfvbm15" path="res://Scenes/UI/dialogue_interaction.tscn" id="21_n7ij6"]
 [ext_resource type="Script" uid="uid://bsw880kyxeail" path="res://Scripts/DialogueSystem/dialogue_text.gd" id="22_43gc4"]
 [ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/Entities/player.tscn" id="23_fqeyt"]
-[ext_resource type="Script" uid="uid://camb41kvbnalv" path="res://Scripts/DialogueSystem/dialogue_choice.gd" id="23_whvu8"]
 [ext_resource type="Script" uid="uid://ctbk0tycn3cie" path="res://Scripts/cave_entrance.gd" id="24_c5dge"]
-[ext_resource type="Script" uid="uid://xk72pbshe2yk" path="res://Scripts/DialogueSystem/dialogue_branch.gd" id="24_d7jj2"]
 [ext_resource type="PackedScene" uid="uid://bqmucvkv6bpal" path="res://Scenes/door.tscn" id="25_k237y"]
 [ext_resource type="PackedScene" uid="uid://dp36ortes6hu" path="res://Scenes/Entities/goblin_enemy.tscn" id="26_i4c2h"]
 [ext_resource type="FontFile" uid="uid://q1g011iuncag" path="res://Assets/Fonts/ari-w9500.ttf" id="29_d7jj2"]
 [ext_resource type="Script" uid="uid://cfgp16qrw7vn3" path="res://Scripts/UI_Related/in_game_warning.gd" id="30_d7jj2"]
+[ext_resource type="AudioStream" uid="uid://rtvl6n7j8nn3" path="res://Assets/Sounds/SFX/crowd_yelling.ogg" id="31_1ojrl"]
 
 [sub_resource type="Environment" id="Environment_a26ea"]
 background_mode = 3
@@ -620,113 +619,37 @@ light_mask = 2
 [node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1067073133]
 script = ExtResource("22_43gc4")
 text = "..!? Varek! What happened? What's with all of that shouting!"
-npc_info = "Elenor"
+npc_name = "Elenor"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText2" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=138192917]
 script = ExtResource("22_43gc4")
 text = "The town found out I'm a vampire. I must get back home to safety, lest I'll be put up at the stakes!"
-npc_info = "Varek"
+npc_name = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText3" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=34553381]
 script = ExtResource("22_43gc4")
 text = "But, it's almost sunrise... Will you manage to return home before dawn without being captured?"
-npc_info = "Elenor"
+npc_name = "Elenor"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText4" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1050218822]
 script = ExtResource("22_43gc4")
 text = "Don't worry about me. I'll find a way. However, before I leave the forest I must find my amulet. I dropped it on my way to the city last night..."
-npc_info = "Varek"
+npc_name = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText5" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1080009032]
 script = ExtResource("22_43gc4")
 text = "In that case I'll buy you some time by distracting anyone I meet. Good luck, Valek. Stay safe..."
-npc_info = "Elenor"
+npc_name = "Elenor"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText6" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=532878174]
 script = ExtResource("22_43gc4")
 text = "Thanks, you too Ele."
-npc_info = "Varek"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueText7" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1151194360]
-script = ExtResource("22_43gc4")
-text = "How are you?"
-npc_info = "Elenor"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueChoice" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=294937695]
-script = ExtResource("23_whvu8")
-metadata/_custom_type_script = "uid://camb41kvbnalv"
-
-[node name="DialogueBranch" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice" unique_id=939469508]
-script = ExtResource("24_d7jj2")
-text = "Not well..."
-metadata/_custom_type_script = "uid://xk72pbshe2yk"
-
-[node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice/DialogueBranch" unique_id=197854946]
-script = ExtResource("22_43gc4")
-text = "Oh, no!"
-npc_info = "Elenor"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueText2" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice/DialogueBranch" unique_id=586835484]
-script = ExtResource("22_43gc4")
-text = "I'll be fine."
-npc_info = "Varek"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueBranch2" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice" unique_id=560940574]
-script = ExtResource("24_d7jj2")
-text = "GOOD!"
-metadata/_custom_type_script = "uid://xk72pbshe2yk"
-
-[node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice/DialogueBranch2" unique_id=1104199283]
-script = ExtResource("22_43gc4")
-text = "I'm happy!"
-npc_info = "Elenor"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueText8" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=576398769]
-script = ExtResource("22_43gc4")
-text = "Jojo"
-npc_info = "Elenor"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueChoice2" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=2054060458]
-script = ExtResource("23_whvu8")
-metadata/_custom_type_script = "uid://camb41kvbnalv"
-
-[node name="DialogueBranch" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice2" unique_id=1297019636]
-script = ExtResource("24_d7jj2")
-text = "Not well..."
-metadata/_custom_type_script = "uid://xk72pbshe2yk"
-
-[node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice2/DialogueBranch" unique_id=62775767]
-script = ExtResource("22_43gc4")
-text = "Oh, no!"
-npc_info = "Elenor"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueText2" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice2/DialogueBranch" unique_id=739191739]
-script = ExtResource("22_43gc4")
-text = "I'll be fine."
-npc_info = "Varek"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueBranch2" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice2" unique_id=1665200101]
-script = ExtResource("24_d7jj2")
-text = "GOOD!"
-metadata/_custom_type_script = "uid://xk72pbshe2yk"
-
-[node name="DialogueText" type="Node" parent="NPC_Elenor/DialogueInteraction/DialogueChoice2/DialogueBranch2" unique_id=1576577435]
-script = ExtResource("22_43gc4")
-text = "I'm happy!"
-npc_info = "Elenor"
+npc_name = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="Player" parent="." unique_id=1453306990 instance=ExtResource("23_fqeyt")]
@@ -798,8 +721,12 @@ position = Vector2(-1840, 64)
 position = Vector2(1892.5, -43)
 shape = SubResource("RectangleShape2D_d7jj2")
 
-[node name="GoblinEnemy" parent="." unique_id=777355793 instance=ExtResource("26_i4c2h")]
-position = Vector2(157, 118)
+[node name="CrowdYelling" type="AudioStreamPlayer2D" parent="." unique_id=1255174852]
+position = Vector2(-13, 104)
+stream = ExtResource("31_1ojrl")
+volume_db = -20.0
+autoplay = true
+max_distance = 400.0
 
 [editable path="Doors/Door_Cave"]
 [editable path="Doors/Door_Meadow"]

@@ -76,9 +76,9 @@ func start_dialogue() -> void:
 	
 func set_dialogue_text(_d : DialogueText) -> void:
 	content.text = _d.text
-	name_label.text = _d.npc_info
+	name_label.text = _d.npc_name
 	
-	var portrait_path = "res://Assets/gfx/Portraits/" + (String(_d.npc_info) + "_Portrait.png")
+	var portrait_path = "res://Assets/gfx/Portraits/" + (String(_d.npc_name) + "_Portrait.png")
 	var portrait_texture = load(portrait_path)
 	portrait.texture = portrait_texture
 	

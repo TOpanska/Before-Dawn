@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var hurtbox := $Hurtbox
 
 # used for changing the last speech text box, based on the results from the quiz
-@onready var last_dialogue_item: DialogueText = $DialogueInteraction2/LastDialogueItem
+@onready var last_dialogue_item: DialogueText = $DialogueInteraction/LastDialogueItem
 
 var current_health := 5
 var last_velocity := Vector2()

@@ -14,11 +14,16 @@ config/name="BeforeDawn"
 run/main_scene="uid://cslo8fcdnri7w"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 NavManager="*uid://bygrag22x6gop"
 DialogueSystem="*uid://l4r25pslxtog"
 PlayerManager="*uid://dk5ne5iravh27"
+SaveManager="*uid://b4ro8h5maqbq3"
 
 [display]
 
@@ -27,6 +32,10 @@ window/size/viewport_height=180
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
+
+[global_group]
+
+levels=""
 
 [input]
 

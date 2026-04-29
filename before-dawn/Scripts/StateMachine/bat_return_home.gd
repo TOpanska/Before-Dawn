@@ -17,6 +17,8 @@ func Physics_Update(_delta: float):
 	var home_direction = home.global_position - enemy.global_position
 	var home_distance = home_direction.length()
 	
+	# this does not seem to work	
+	#print(home_distance)
 	if home_distance > 2:
 		enemy.velocity = (home_direction / home_direction.length()) * move_speed
 	else:

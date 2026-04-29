@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cy8fel80bhvh6"]
 
-[ext_resource type="Script" uid="uid://dcwqjhy0ht3n4" path="res://Scripts/npc_godrick.gd" id="1_ely8j"]
-[ext_resource type="Texture2D" uid="uid://dahayyl7cwmcl" path="res://Assets/gfx/Entities/goblin_godrick_sheet.png" id="1_nviym"]
+[ext_resource type="Script" uid="uid://dcwqjhy0ht3n4" path="res://Scripts/Entities/npc_godrick.gd" id="1_ely8j"]
+[ext_resource type="Texture2D" uid="uid://dahayyl7cwmcl" path="res://Assets/GFX/Entities/goblin_godrick_sheet.png" id="1_nviym"]
 [ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scripts/hurtbox.gd" id="2_job6b"]
 [ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="3_0a3qn"]
 [ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="4_0a3qn"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cc6bmbr8ouqro"]
+
+[ext_resource type="Script" uid="uid://cet02d8hirds0" path="res://Scripts/spike.gd" id="1_1hotg"]
+[ext_resource type="Texture2D" uid="uid://dhnt240fm4i7r" path="res://Assets/gfx/Decor/spike.png" id="1_cdj5a"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_cdj5a"]
+points = PackedVector2Array(3.5, 5.5, -0.5, -7.5, -4.5, 5.5)
+
+[node name="Spike" type="Sprite2D" unique_id=1002071686]
+texture = ExtResource("1_cdj5a")
+script = ExtResource("1_1hotg")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1824448652]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1993080903]
+position = Vector2(0.5, 0.5)
+shape = SubResource("ConvexPolygonShape2D_cdj5a")

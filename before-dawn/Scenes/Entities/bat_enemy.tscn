@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bn6suqook7v7h"]
 
-[ext_resource type="Script" uid="uid://ckynwj47x3ghs" path="res://Scripts/Enemies/bat_enemy.gd" id="1_6c0n6"]
-[ext_resource type="Texture2D" uid="uid://brbeuo2qp7a2c" path="res://Assets/gfx/Entities/bat-Sheet.png" id="2_nvv5w"]
+[ext_resource type="Script" uid="uid://ckynwj47x3ghs" path="res://Scripts/Entities/bat_enemy.gd" id="1_6c0n6"]
+[ext_resource type="Texture2D" uid="uid://brbeuo2qp7a2c" path="res://Assets/GFX/Entities/bat-Sheet.png" id="2_nvv5w"]
 [ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="3_mxwyp"]
 [ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="3_wlu0h"]
 [ext_resource type="Script" uid="uid://bfcv7sqcw173n" path="res://Scripts/StateMachine/bat_follow.gd" id="4_2hjjg"]

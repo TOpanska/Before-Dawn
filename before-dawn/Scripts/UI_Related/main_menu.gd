@@ -4,9 +4,15 @@ extends Control
 @onready var settings: Panel = $Settings
 @onready var controls: Panel = $Controls
 @onready var label: Label = $Label
+@onready var fullscreen_toggle: CheckButton = $Settings/FullscreenToggle
+@onready var audio_control: HSlider = $Settings/AudioControl
+
 
 
 func _ready() -> void:
+	SaveManager.load_game()
+	fullscreen_toggle.toggle_mode = SaveManager.settings["full_screen_toggle"]
+	print(SaveManager.settings["full_screen_toggle"])
 	buttons.visible = true
 	settings.visible = false
 	label.visible = true
@@ -31,9 +37,12 @@ func _on_button_exit_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
+	SaveManager.settings["volume"] = audio_control.value
+	SaveManager.settings["full_screen_toggle"] = fullscreen_toggle.toggle_mode
 	buttons.visible = true
 	settings.visible = false
 	label.visible = true
+	SaveManager.save_game()
 
 
 func _on_controls_pressed() -> void:
@@ -44,3 +53,7 @@ func _on_controls_pressed() -> void:
 func _on_back_2_pressed() -> void:
 	settings.visible = true
 	controls.visible = false
+
+
+func _on_button_pressed_play_sound() -> void:
+	$ButtonPressed.play()

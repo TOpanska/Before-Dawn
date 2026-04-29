@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bma12kd8y25oo"
-path="res://.godot/imported/interact_control.png-5ae40a94be4ea6d56038ef4391c94d91.ctex"
+path="res://.godot/imported/interact_control.png-bdb878357573579ad64dfa1d32caeedc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/GUI/interact_control.png"
-dest_files=["res://.godot/imported/interact_control.png-5ae40a94be4ea6d56038ef4391c94d91.ctex"]
+source_file="res://Assets/GFX/GUI/interact_control.png"
+dest_files=["res://.godot/imported/interact_control.png-bdb878357573579ad64dfa1d32caeedc.ctex"]
 
 [params]
 

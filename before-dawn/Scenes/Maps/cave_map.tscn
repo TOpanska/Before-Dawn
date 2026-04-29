@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://ltdfqw7jgfxh"]
 
-[ext_resource type="TileSet" uid="uid://dyc4hahwcjiw6" path="res://Assets/gfx/Tiles/forest_tileset.tres" id="1_fc1ym"]
+[ext_resource type="TileSet" uid="uid://dyc4hahwcjiw6" path="res://Assets/GFX/Tiles/forest_tileset.tres" id="1_fc1ym"]
 [ext_resource type="Script" uid="uid://dc5nc1lr0xrqe" path="res://Scripts/level.gd" id="1_ihytu"]
 [ext_resource type="PackedScene" uid="uid://bqmucvkv6bpal" path="res://Scenes/door.tscn" id="2_4mxno"]
-[ext_resource type="Texture2D" uid="uid://bd02d7kmjt2qk" path="res://Assets/gfx/Backgrounds/cave_bg.png" id="2_uv662"]
+[ext_resource type="Texture2D" uid="uid://bd02d7kmjt2qk" path="res://Assets/GFX/Backgrounds/cave_bg.png" id="2_uv662"]
 [ext_resource type="PackedScene" uid="uid://k4568sdktqa7" path="res://Scenes/Entities/player.tscn" id="3_str2v"]
-[ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/gfx/Decor/lantern.png" id="6_knryl"]
-[ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/gfx/Decor/light2.png" id="7_xmge7"]
+[ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/GFX/Decor/lantern.png" id="6_knryl"]
+[ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/GFX/Decor/light2.png" id="7_xmge7"]
 [ext_resource type="PackedScene" uid="uid://bn6suqook7v7h" path="res://Scenes/Entities/bat_enemy.tscn" id="8_xmge7"]
-[ext_resource type="PackedScene" uid="uid://6ud1w5gibg3u" path="res://Scenes/collectible.tscn" id="9_8ndml"]
-[ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/gfx/GUI/attack_control.png" id="10_8ndml"]
+[ext_resource type="PackedScene" uid="uid://6ud1w5gibg3u" path="res://Scenes/collectable.tscn" id="9_8ndml"]
+[ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/GFX/GUI/attack_control.png" id="10_8ndml"]
 [ext_resource type="Script" uid="uid://cgk7p0xd0roaq" path="res://Scripts/UI_Related/control_labels.gd" id="11_54io8"]
 
 [sub_resource type="Gradient" id="Gradient_uv662"]
@@ -46,7 +46,7 @@ turbulence_noise_scale = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_anh3i"]
 radius = 67.36468
 
-[node name="CaveMap" type="Node2D" unique_id=1865489539]
+[node name="CaveMap" type="Node2D" unique_id=1865489539 groups=["levels"]]
 script = ExtResource("1_ihytu")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=886584114]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b527lq32illl3"]
 
-[ext_resource type="Texture2D" uid="uid://d14i2ak840783" path="res://Assets/gfx/Backgrounds/menu_art_frames.png" id="1_bhpww"]
+[ext_resource type="Texture2D" uid="uid://d14i2ak840783" path="res://Assets/GFX/Backgrounds/menu_art_frames.png" id="1_bhpww"]
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_gdxnu"]
 [ext_resource type="FontFile" uid="uid://cp45bpbge7ltb" path="res://Assets/Fonts/SingleGhost regular.ttf" id="3_8yanq"]
 
@@ -271,7 +271,7 @@ theme_override_fonts/font = ExtResource("3_8yanq")
 theme_override_font_sizes/font_size = 22
 text = "Before Dawn"
 
-[node name="DeathMessage" type="Label" parent="." unique_id=226670421]
+[node name="WinLossMessage" type="Label" parent="." unique_id=226670421]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -286,7 +286,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_gdxnu")
 theme_override_font_sizes/font_size = 12
-text = "You couldn't make it home..."
+text = "You couldn't make it home.../You made it home!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

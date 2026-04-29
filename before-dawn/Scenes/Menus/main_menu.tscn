@@ -3,14 +3,16 @@
 [ext_resource type="Script" uid="uid://bi7mvhjlqag87" path="res://Scripts/UI_Related/main_menu.gd" id="1_ce3w2"]
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://cp45bpbge7ltb" path="res://Assets/Fonts/SingleGhost regular.ttf" id="2_48xlc"]
-[ext_resource type="Texture2D" uid="uid://d14i2ak840783" path="res://Assets/gfx/Backgrounds/menu_art_frames.png" id="2_n45e2"]
+[ext_resource type="Texture2D" uid="uid://d14i2ak840783" path="res://Assets/GFX/Backgrounds/menu_art_frames.png" id="2_n45e2"]
 [ext_resource type="Script" uid="uid://cy0ahnrwtm88t" path="res://Scripts/UI_Related/fullscreen_toggle.gd" id="5_16hvj"]
-[ext_resource type="Texture2D" uid="uid://7rguyg2t74np" path="res://Assets/gfx/GUI/controller.png" id="5_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://dx1a2gg85672v" path="res://Assets/gfx/GUI/e.png" id="6_trj04"]
-[ext_resource type="Texture2D" uid="uid://dmxfg5xd5r3q3" path="res://Assets/gfx/GUI/space.png" id="7_16hvj"]
-[ext_resource type="Texture2D" uid="uid://delwxdqq3aftb" path="res://Assets/gfx/GUI/wasd.png" id="8_vr1f0"]
-[ext_resource type="Texture2D" uid="uid://fftet5i1vghk" path="res://Assets/gfx/GUI/mouse_left.png" id="9_trj04"]
+[ext_resource type="Script" uid="uid://ciebxtwash8sb" path="res://Scripts/audio_control.gd" id="5_t1dhk"]
+[ext_resource type="Texture2D" uid="uid://7rguyg2t74np" path="res://Assets/GFX/GUI/controller.png" id="5_yhxw7"]
+[ext_resource type="Texture2D" uid="uid://dx1a2gg85672v" path="res://Assets/GFX/GUI/e.png" id="6_trj04"]
+[ext_resource type="Texture2D" uid="uid://dmxfg5xd5r3q3" path="res://Assets/GFX/GUI/space.png" id="7_16hvj"]
+[ext_resource type="Texture2D" uid="uid://delwxdqq3aftb" path="res://Assets/GFX/GUI/wasd.png" id="8_vr1f0"]
+[ext_resource type="Texture2D" uid="uid://fftet5i1vghk" path="res://Assets/GFX/GUI/mouse_left.png" id="9_trj04"]
 [ext_resource type="AudioStream" uid="uid://y1ib6evpx0uo" path="res://Assets/Sounds/Music/menu_win_music.ogg" id="11_vr1f0"]
+[ext_resource type="AudioStream" uid="uid://du0eqcxqn03wa" path="res://Assets/Sounds/SFX/button_click.ogg" id="13_80s4p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
 atlas = ExtResource("2_n45e2")
@@ -219,17 +221,32 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trj04"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.73467994, 0.73467994, 0.7346799, 0.6)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 6
+[sub_resource type="DPITexture" id="DPITexture_vr1f0"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+base_scale = 0.5
+
+[sub_resource type="DPITexture" id="DPITexture_t1dhk"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+base_scale = 0.5
+
+[sub_resource type="DPITexture" id="DPITexture_5egv6"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+base_scale = 0.5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vr1f0"]
+color = Color(1, 1, 1, 0.5058824)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_t1dhk"]
+color = Color(0.5882353, 0.5137255, 0.7490196, 1)
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5egv6"]
+color = Color(0.6956091, 0.5635252, 0.7431079, 1)
+thickness = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
 content_margin_left = 0.0
@@ -391,13 +408,29 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
 text = "Controls"
 
-[node name="HSlider" type="HSlider" parent="Settings" unique_id=68814821]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 21.0
-offset_right = 184.0
-offset_bottom = 37.0
-theme_override_styles/slider = SubResource("StyleBoxFlat_trj04")
+[node name="AudioControl" type="HSlider" parent="Settings" unique_id=68814821]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -40.0
+offset_right = 53.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber = SubResource("DPITexture_vr1f0")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_t1dhk")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_5egv6")
+theme_override_styles/slider = SubResource("StyleBoxLine_vr1f0")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_t1dhk")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_5egv6")
+max_value = 1.0
+step = 0.005
+value = 1.0
+script = ExtResource("5_t1dhk")
 
 [node name="FullscreenToggle" type="CheckButton" parent="Settings" unique_id=76880503]
 layout_mode = 0
@@ -405,10 +438,21 @@ offset_left = 68.0
 offset_top = 44.0
 offset_right = 189.0
 offset_bottom = 68.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 13
 text = "Fullscreen"
 script = ExtResource("5_16hvj")
+
+[node name="VolumeLabel" type="Label" parent="Settings" unique_id=1588671584]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 8.0
+offset_right = 113.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 13
+text = "Volume: 100%"
 
 [node name="Controls" type="Panel" parent="." unique_id=963734221]
 visible = false
@@ -567,16 +611,28 @@ theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 13
 text = "Controller"
 
-[node name="MenuWinMusic" type="AudioStreamPlayer2D" parent="." unique_id=1189052042]
+[node name="MenuAndWinMusic" type="AudioStreamPlayer2D" parent="." unique_id=1189052042]
 position = Vector2(-13, 129)
 stream = ExtResource("11_vr1f0")
-volume_db = -20.0
+volume_db = -10.0
 autoplay = true
 
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="." unique_id=714483995]
+position = Vector2(-51, 185)
+stream = ExtResource("13_80s4p")
+
+[connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="Settings/Back" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="Settings/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings/Controls" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="Settings/Controls" to="." method="_on_controls_pressed"]
+[connection signal="value_changed" from="Settings/AudioControl" to="Settings/AudioControl" method="_on_value_changed"]
+[connection signal="pressed" from="Settings/FullscreenToggle" to="." method="_on_button_pressed_play_sound"]
 [connection signal="toggled" from="Settings/FullscreenToggle" to="Settings/FullscreenToggle" method="_on_toggled"]
+[connection signal="pressed" from="Controls/Back_2" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="Controls/Back_2" to="." method="_on_back_2_pressed"]

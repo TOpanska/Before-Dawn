@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnd5io1732ofd"
-path="res://.godot/imported/wall_flower1.png-94d0064d05d3371730e5314376f863ca.ctex"
+path="res://.godot/imported/wall_flower1.png-262ef6e18de8b9f9f9ee6080bb1b2b3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/Decor/wall_flower1.png"
-dest_files=["res://.godot/imported/wall_flower1.png-94d0064d05d3371730e5314376f863ca.ctex"]
+source_file="res://Assets/GFX/Decor/wall_flower1.png"
+dest_files=["res://.godot/imported/wall_flower1.png-262ef6e18de8b9f9f9ee6080bb1b2b3a.ctex"]
 
 [params]
 

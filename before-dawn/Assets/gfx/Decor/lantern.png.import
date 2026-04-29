@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cql6tbj4vw21k"
-path="res://.godot/imported/lantern.png-df19351ad4ccc52cda6e46426a9a24a4.ctex"
+path="res://.godot/imported/lantern.png-4ffab4784eea9448c7b3c09ac0fdfe66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/Decor/lantern.png"
-dest_files=["res://.godot/imported/lantern.png-df19351ad4ccc52cda6e46426a9a24a4.ctex"]
+source_file="res://Assets/GFX/Decor/lantern.png"
+dest_files=["res://.godot/imported/lantern.png-4ffab4784eea9448c7b3c09ac0fdfe66.ctex"]
 
 [params]
 

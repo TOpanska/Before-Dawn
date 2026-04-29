@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxjdbfmn6xw2p"
-path="res://.godot/imported/Elenor_Portrait.png-3da2d4fe76ea7bf86463ec28933d2cfe.ctex"
+path="res://.godot/imported/Elenor_Portrait.png-e44b0b399f55cebc7cd023cd63ea9313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/Portraits/Elenor_Portrait.png"
-dest_files=["res://.godot/imported/Elenor_Portrait.png-3da2d4fe76ea7bf86463ec28933d2cfe.ctex"]
+source_file="res://Assets/GFX/Portraits/Elenor_Portrait.png"
+dest_files=["res://.godot/imported/Elenor_Portrait.png-e44b0b399f55cebc7cd023cd63ea9313.ctex"]
 
 [params]
 

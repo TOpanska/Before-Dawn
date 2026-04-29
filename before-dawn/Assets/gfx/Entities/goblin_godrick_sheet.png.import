@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dahayyl7cwmcl"
-path="res://.godot/imported/goblin_godrick_sheet.png-f5fd2ca354241e4ebf18399180e5d0eb.ctex"
+path="res://.godot/imported/goblin_godrick_sheet.png-82d328aa28af6f44379aee27791edf31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/Entities/goblin_godrick_sheet.png"
-dest_files=["res://.godot/imported/goblin_godrick_sheet.png-f5fd2ca354241e4ebf18399180e5d0eb.ctex"]
+source_file="res://Assets/GFX/Entities/goblin_godrick_sheet.png"
+dest_files=["res://.godot/imported/goblin_godrick_sheet.png-82d328aa28af6f44379aee27791edf31.ctex"]
 
 [params]
 

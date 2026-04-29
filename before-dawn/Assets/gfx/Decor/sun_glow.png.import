@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ceqa4pp13cfgp"
-path="res://.godot/imported/sun_glow.png-0b9d30a75093a3a483cfd03f5d302f77.ctex"
+path="res://.godot/imported/sun_glow.png-84c0c7b6fd7903624bb3af29757e8aab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gfx/Decor/sun_glow.png"
-dest_files=["res://.godot/imported/sun_glow.png-0b9d30a75093a3a483cfd03f5d302f77.ctex"]
+source_file="res://Assets/GFX/Decor/sun_glow.png"
+dest_files=["res://.godot/imported/sun_glow.png-84c0c7b6fd7903624bb3af29757e8aab.ctex"]
 
 [params]
 

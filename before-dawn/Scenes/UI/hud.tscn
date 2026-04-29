@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b0ot8vlqi4yiw"]
 
 [ext_resource type="Script" uid="uid://b080lvjpytxbj" path="res://Scripts/UI_Related/hud.gd" id="1_fccik"]
-[ext_resource type="Texture2D" uid="uid://dayqr4wlgm61" path="res://Assets/gfx/GUI/heart.png" id="2_bjfho"]
+[ext_resource type="Texture2D" uid="uid://dayqr4wlgm61" path="res://Assets/GFX/GUI/heart.png" id="2_bjfho"]
 [ext_resource type="FontFile" uid="uid://q1g011iuncag" path="res://Assets/Fonts/ari-w9500.ttf" id="3_bjfho"]
-[ext_resource type="Texture2D" uid="uid://kkwfh58ttnwr" path="res://Assets/gfx/GUI/timer_icon.png" id="4_6fbih"]
+[ext_resource type="Texture2D" uid="uid://kkwfh58ttnwr" path="res://Assets/GFX/GUI/timer_icon.png" id="4_6fbih"]
 
-[node name="HeartBar" type="CanvasLayer" unique_id=524637197]
+[node name="HUD" type="CanvasLayer" unique_id=524637197]
 script = ExtResource("1_fccik")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=505625458]

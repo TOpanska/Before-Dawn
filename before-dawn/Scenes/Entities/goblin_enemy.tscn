@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp36ortes6hu"]
 
-[ext_resource type="Texture2D" uid="uid://bnmoq3l38xiln" path="res://Assets/gfx/Entities/goblin_sheet.png" id="1_l7mss"]
-[ext_resource type="Script" uid="uid://4ssk86fs3c3h" path="res://Scripts/Enemies/goblin_enemy.gd" id="1_oopm2"]
+[ext_resource type="Texture2D" uid="uid://bnmoq3l38xiln" path="res://Assets/GFX/Entities/goblin_sheet.png" id="1_l7mss"]
+[ext_resource type="Script" uid="uid://4ssk86fs3c3h" path="res://Scripts/Entities/goblin_enemy.gd" id="1_oopm2"]
 [ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="2_ov1qi"]
 [ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scripts/hurtbox.gd" id="3_n705r"]
 [ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/StateMachine/enemy_walk.gd" id="3_ons48"]

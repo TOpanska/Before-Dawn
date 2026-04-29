@@ -21,5 +21,5 @@ func Physics_Update(_delta: float):
 	else:
 		enemy.velocity = Vector2()
 	
-	if distance > 110:
+	if distance >= 100:
 		transition.emit(self, "BatReturnHome")
