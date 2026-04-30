@@ -1,9 +1,14 @@
+# Doesn't have a collision shape for physics so it can go
+# through walls
+
 class_name BatEnemy extends CharacterBody2D
 
 @onready var animated_sprite := $AnimatedSprite2D
-@export var max_health := 1
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hitbox
+
+@export var home : Marker2D
+@export var max_health := 1
 
 var current_health := 1
 var last_velocity := Vector2()

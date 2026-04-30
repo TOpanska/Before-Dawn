@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://daym8pppmyoht" path="res://Assets/Fonts/GrapeSoda.ttf" id="2_tgreg"]
 [ext_resource type="FontFile" uid="uid://q1g011iuncag" path="res://Assets/Fonts/ari-w9500.ttf" id="3_drpe7"]
 [ext_resource type="Texture2D" uid="uid://dxjdbfmn6xw2p" path="res://Assets/GFX/Portraits/Elenor_Portrait.png" id="4_i2efg"]
+[ext_resource type="AudioStream" uid="uid://du0eqcxqn03wa" path="res://Assets/Sounds/SFX/button_click.ogg" id="6_e7an8"]
 
 [sub_resource type="Gradient" id="Gradient_i2efg"]
 colors = PackedColorArray(0.5163938, 0.5163938, 0.5163937, 1, 1, 1, 1, 0)
@@ -26,7 +27,7 @@ texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
 [sub_resource type="Theme" id="Theme_i2efg"]
-default_font = ExtResource("2_tgreg")
+default_font = ExtResource("3_drpe7")
 default_font_size = 10
 
 [node name="DialogueSystem" type="CanvasLayer" unique_id=268167081]
@@ -130,3 +131,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_drpe7")
 text = "Choice 1..."
 alignment = 0
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1678804322]
+position = Vector2(0, 1)
+stream = ExtResource("6_e7an8")

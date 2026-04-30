@@ -3,6 +3,7 @@ class_name DialogueInteraction extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var area: DialogueInteraction = $"."
+@onready var button_click: AudioStreamPlayer2D = $ButtonClick
 
 var player_is_in_area := false
 var dialogue_items : Array[DialogueItem]
@@ -16,6 +17,8 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("INTERACT") and player_is_in_area:
+		button_click.play()
+		await get_tree().create_timer(0.3).timeout
 		DialogueSystem.show_dialogue(dialogue_items)
 		area.monitoring = false
 

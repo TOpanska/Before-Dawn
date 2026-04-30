@@ -14,6 +14,12 @@ var dialogue_item_index := 0
 @onready var name_label: Label = $DialogueUI/NameLabel
 @onready var portrait: Sprite2D = $DialogueUI/Portrait
 @onready var choice_options: VBoxContainer = $DialogueUI/Choices
+@onready var button_click: AudioStreamPlayer2D = $ButtonClick
+
+
+var elenor_portrait := preload("res://Assets/GFX/Portraits/Elenor_Portrait.png")
+var varek_portrait := preload("res://Assets/GFX/Portraits/Varek_Portrait.png")
+var godrick_portrait := preload("res://Assets/GFX/Portraits/Godrick_Portrait.png")
 
 
 func _ready() -> void:
@@ -28,6 +34,8 @@ func _input(event: InputEvent) -> void:
 		event.is_action_pressed("SWING") or
 		event.is_action_pressed("JUMP")
 	):
+		button_click.play()
+		
 		if waiting_for_choice == true:
 			return
 		
@@ -78,10 +86,14 @@ func set_dialogue_text(_d : DialogueText) -> void:
 	content.text = _d.text
 	name_label.text = _d.npc_name
 	
-	var portrait_path = "res://Assets/gfx/Portraits/" + (String(_d.npc_name) + "_Portrait.png")
-	var portrait_texture = load(portrait_path)
-	portrait.texture = portrait_texture
-	
+	match _d.npc_name:
+		"Elenor":
+			portrait.texture = elenor_portrait
+		"Varek":
+			portrait.texture = varek_portrait
+		"Godrick":
+			portrait.texture = godrick_portrait
+			
 func set_dialogue_choice(_d) -> void:
 	choice_options.visible = true
 	waiting_for_choice = true

@@ -2,6 +2,7 @@ class_name Collectible extends Sprite2D
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var button_click: AudioStreamPlayer2D = $ButtonClick
 
 var player_is_in_area := false
 
@@ -13,6 +14,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("INTERACT") and player_is_in_area:
+		button_click.play()
+		await get_tree().create_timer(0.3).timeout
 		PlayerManager.is_amulet_collected = true
 		queue_free()
 		pass

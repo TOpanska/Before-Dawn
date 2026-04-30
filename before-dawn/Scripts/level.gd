@@ -1,11 +1,14 @@
 extends Node2D
 
+# These don't exist in the cave map, so an error occurs each time
+# it's entered. For now it doesn't cause issues... Might fix later.
 @onready var sky_node := $Backgrounds/Sky/Sky
 @onready var sun_sprite := $Backgrounds/Sky/Sun
 @onready var global_lighting := $GlobalLighting
+
 @onready var global_timer := $"../GlobalTimer"
 
-@export var seconds_until_full_sunrise : float = 500.0
+@export var seconds_until_full_sunrise : float = 300.0
 
 var time_elapsed : float = 0.0
 

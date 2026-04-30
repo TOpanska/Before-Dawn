@@ -219,6 +219,23 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80s4p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
 
 [sub_resource type="DPITexture" id="DPITexture_vr1f0"]
@@ -277,7 +294,6 @@ autoplay = "menu_art"
 frame_progress = 0.41546974
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=807279430]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -295,18 +311,20 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.23529412, 0.37254903, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_80s4p")
 text = "Play"
 
 [node name="Button_Settings" type="Button" parent="VBoxContainer" unique_id=896109144]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.23529412, 0.37254903, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
@@ -319,6 +337,7 @@ text = "Settings"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.23529412, 0.37254903, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
@@ -349,6 +368,7 @@ theme_override_font_sizes/font_size = 22
 text = "Before Dawn"
 
 [node name="Settings" type="Panel" parent="." unique_id=797060273]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -377,6 +397,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.23529412, 0.37254903, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
@@ -400,6 +421,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.23529412, 0.37254903, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
@@ -583,6 +605,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.2509804, 0.23529412, 0.37254903, 1)
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
@@ -621,14 +644,14 @@ autoplay = true
 position = Vector2(-51, 185)
 stream = ExtResource("13_80s4p")
 
-[connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_pressed_play_sound"]
+[connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_pressed_play_sound"]
+[connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
-[connection signal="pressed" from="Settings/Back" to="." method="_on_button_pressed_play_sound"]
+[connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="Settings/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings/Back" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="Settings/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Settings/Controls" to="." method="_on_button_pressed_play_sound"]
 [connection signal="value_changed" from="Settings/AudioControl" to="Settings/AudioControl" method="_on_value_changed"]

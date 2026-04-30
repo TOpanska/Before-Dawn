@@ -9,11 +9,13 @@ const scene_home = preload("res://Scenes/Maps/home_map.tscn")
 signal on_trigger_player_spawn
 
 var spawn_door_tag
+var scene_to_load
+var camera_limit_left
+var camera_limit_right
 
 func go_to_level(level_tag, destination_tag):
-	var scene_to_load
-	var camera_limit_left = -1000000
-	var camera_limit_right = 1000000
+	camera_limit_left = -1000000
+	camera_limit_right = 1000000
 	
 	match level_tag:
 		"Forest":
@@ -37,11 +39,12 @@ func go_to_level(level_tag, destination_tag):
 		spawn_door_tag = destination_tag
 		var current_scene = get_node("/root/Game/").get_child(2)
 		current_scene.queue_free()
-		get_node("/root/Game/").add_child(scene_to_load.instantiate())
-		
+		call_deferred("buh")
 
-	var camera = get_tree().get_nodes_in_group("camera")[1]
 	
+func buh() -> void:
+	get_node("/root/Game/").add_child(scene_to_load.instantiate())
+	var camera = get_tree().get_nodes_in_group("camera")[1]
 	camera.set_level_camera_limits(camera_limit_left, camera_limit_right)
 
 func trigger_player_spawn(position: Vector2, direction: String):
