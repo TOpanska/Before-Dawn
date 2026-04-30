@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="3_wlu0h"]
 [ext_resource type="Script" uid="uid://bfcv7sqcw173n" path="res://Scripts/StateMachine/bat_follow.gd" id="4_2hjjg"]
 [ext_resource type="Script" uid="uid://ccqsos44stilo" path="res://Scripts/StateMachine/bat_return_home.gd" id="5_mxwyp"]
+[ext_resource type="AudioStream" uid="uid://dtsluoj2u8vpu" path="res://Assets/Sounds/SFX/bat.ogg" id="7_vyr0r"]
+[ext_resource type="Script" uid="uid://brys0d0d8ocof" path="res://Scripts/randomized_audiostream_player.gd" id="8_2kyc2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5m8x6"]
 atlas = ExtResource("2_nvv5w")
@@ -88,3 +90,10 @@ enemy = NodePath("../..")
 [node name="BatReturnHome" type="Node" parent="StateMachine" unique_id=1725981397 node_paths=PackedStringArray("enemy")]
 script = ExtResource("5_mxwyp")
 enemy = NodePath("../..")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=1088627937]
+stream = ExtResource("7_vyr0r")
+volume_db = -10.0
+script = ExtResource("8_2kyc2")
+max_pitch = 1.4
+metadata/_custom_type_script = "uid://brys0d0d8ocof"

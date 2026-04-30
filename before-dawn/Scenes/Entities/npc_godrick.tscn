@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bsed2ipxxrtcb" path="res://Scripts/StateMachine/enemy_follow.gd" id="6_oo60u"]
 [ext_resource type="Script" uid="uid://dembenjmkmv5j" path="res://Scripts/StateMachine/enemy_attack.gd" id="7_154ei"]
 [ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/StateMachine/enemy_walk.gd" id="8_154ei"]
+[ext_resource type="AudioStream" uid="uid://bji0grl0iyvou" path="res://Assets/Sounds/SFX/goblin.ogg" id="9_6mgf6"]
+[ext_resource type="Script" uid="uid://brys0d0d8ocof" path="res://Scripts/randomized_audiostream_player.gd" id="10_588c8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iomvs"]
 atlas = ExtResource("1_nviym")
@@ -131,9 +133,8 @@ debug_color = Color(0.22754276, 0.6347974, 0.19995582, 0.41960785)
 position = Vector2(-4.5, 1)
 shape = SubResource("RectangleShape2D_oo60u")
 
-[node name="StateMachine" type="Node" parent="." unique_id=195259243 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=195259243]
 script = ExtResource("4_0a3qn")
-initial_state = NodePath("")
 
 [node name="EnemyFollow" type="Node" parent="StateMachine" unique_id=1321581774 node_paths=PackedStringArray("enemy")]
 script = ExtResource("6_oo60u")
@@ -149,6 +150,14 @@ metadata/_custom_type_script = "uid://dembenjmkmv5j"
 script = ExtResource("8_154ei")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://dpwe1lv6eowwk"
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=696663138]
+stream = ExtResource("9_6mgf6")
+volume_db = -12.0
+script = ExtResource("10_588c8")
+min_pitch = 0.9
+max_pitch = 1.1
+metadata/_custom_type_script = "uid://brys0d0d8ocof"
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]

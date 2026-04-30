@@ -10,14 +10,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var time_elapsed : int = global_timer.wait_time - global_timer.time_left
 	var time_left = 300 - time_elapsed
-	var minutes = floor(time_left/60)
-	var seconds = str(time_left - 60 * minutes)
-	var time_label = str(minutes) + ":"
-	if len(seconds) < 2:
-		time_label += "0"
-	time_label += seconds
-	
-	timer.text = time_label
+		
+	timer.text = PlayerManager.seconds_to_string(time_left)
 	
 	
 func update_hearts(current_health) -> void:

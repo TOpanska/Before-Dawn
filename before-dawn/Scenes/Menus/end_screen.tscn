@@ -286,7 +286,7 @@ offset_right = 202.0
 offset_bottom = 109.0
 theme_override_fonts/font = ExtResource("5_xpyl2")
 theme_override_font_sizes/font_size = 9
-text = "Best Record:"
+text = "Best Record: "
 
 [node name="CurrentTime" type="Label" parent="." unique_id=2035387024]
 layout_mode = 1
@@ -296,7 +296,7 @@ offset_right = 160.0
 offset_bottom = 126.0
 theme_override_fonts/font = ExtResource("5_xpyl2")
 theme_override_font_sizes/font_size = 9
-text = "Current Time:"
+text = "Current Time: "
 
 [node name="ButtonPressed" type="AudioStreamPlayer2D" parent="." unique_id=100072600]
 position = Vector2(-51, 185)
@@ -305,6 +305,5 @@ stream = ExtResource("5_2oi4k")
 [node name="GameOverMusic" type="AudioStreamPlayer2D" parent="." unique_id=309479712]
 stream = ExtResource("6_rm0sf")
 volume_db = -10.0
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]

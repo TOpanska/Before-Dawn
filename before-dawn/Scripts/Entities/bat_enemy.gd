@@ -6,6 +6,7 @@ class_name BatEnemy extends CharacterBody2D
 @onready var animated_sprite := $AnimatedSprite2D
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hitbox
+@onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
 
 @export var home : Marker2D
 @export var max_health := 1
@@ -40,13 +41,15 @@ func _physics_process(delta: float) -> void:
 	last_velocity = velocity
 
 func take_damage(amount: int):
+	hurt_sfx.play_rand()
 	current_health -= amount
+	
+	animated_sprite.modulate =  Color(2, 2, 2, 1)
+	await get_tree().create_timer(0.3).timeout
 	
 	if current_health <= 0:
 		die()
 		
-	animated_sprite.modulate =  Color(2, 2, 2, 1)
-	await get_tree().create_timer(0.5).timeout
 	animated_sprite.modulate = Color(1, 1, 1, 1)
 	
 

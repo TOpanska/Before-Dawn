@@ -5,6 +5,11 @@ const JUMP_VELOCITY = -290.0
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_hitbox := $Hitbox
 
+@onready var step_sfx: RandomizedAudioStreamPlayer = $Step
+@onready var jump_sfx: RandomizedAudioStreamPlayer = $Jump
+@onready var hit_sfx: RandomizedAudioStreamPlayer = $Hit
+@onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
+
 var is_attacking := false
 
 var health : int
@@ -19,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _handle_attacking() -> void:
 	if Input.is_action_just_pressed("SWING") and not is_attacking and is_on_floor():
-		
+		hit_sfx.play_rand()
 		is_attacking = true
 		attack_hitbox.enable()
 		animated_sprite.play("attack")
@@ -41,6 +46,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("JUMP") and is_on_floor():
+		jump_sfx.play_rand()
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -63,6 +69,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("idle")
 
+	if is_on_floor() and !step_sfx.playing and velocity.x != 0:
+		step_sfx.play_rand()
+	elif !is_on_floor() or velocity.x == 0:
+		step_sfx.stop()
+	
 	move_and_slide()
 
 func _on_spawn(position: Vector2, direction: String):
@@ -71,6 +82,8 @@ func _on_spawn(position: Vector2, direction: String):
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area is Hitbox:
+		hurt_sfx.play_rand()
+		
 		health -= 1
 		
 		PlayerManager.take_damage(health)

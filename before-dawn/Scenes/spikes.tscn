@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="2_0qgod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwqs2"]
-size = Vector2(26, 11)
+size = Vector2(22, 10)
 
 [node name="Spikes" type="Sprite2D" unique_id=1002071686]
 texture = ExtResource("1_gwqs2")
@@ -13,5 +13,5 @@ texture = ExtResource("1_gwqs2")
 script = ExtResource("2_0qgod")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1993080903]
-position = Vector2(0, 0.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_gwqs2")

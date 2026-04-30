@@ -34,6 +34,7 @@ func _input(event: InputEvent) -> void:
 		event.is_action_pressed("SWING") or
 		event.is_action_pressed("JUMP")
 	):
+		print(dialogue_items)
 		button_click.play()
 		
 		if waiting_for_choice == true:

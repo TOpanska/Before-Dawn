@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6bmbr8ouqro" path="res://Scenes/spikes.tscn" id="15_rvwok"]
 [ext_resource type="PackedScene" uid="uid://bn6suqook7v7h" path="res://Scenes/Entities/bat_enemy.tscn" id="16_siip3"]
 [ext_resource type="PackedScene" uid="uid://dp36ortes6hu" path="res://Scenes/Entities/goblin_enemy.tscn" id="17_pvky2"]
+[ext_resource type="Script" uid="uid://cegb1p68klxib" path="res://Scripts/win_area.gd" id="18_fbxqu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iet8v"]
 shader = ExtResource("1_hupcs")
@@ -150,6 +151,9 @@ texture = ExtResource("7_c0cor")
 
 [sub_resource type="TileSet" id="TileSet_0nxt8"]
 sources/0 = SubResource("TileSetAtlasSource_4lbb4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvky2"]
+size = Vector2(57.33835, 67)
 
 [node name="HomeMap" type="Node2D" unique_id=1371828830]
 script = ExtResource("1_gmbfx")
@@ -303,5 +307,14 @@ position = Vector2(274, 60)
 
 [node name="BatHome2" type="Marker2D" parent="BatHomes" unique_id=192057486]
 position = Vector2(559, 58)
+
+[node name="WinArea" type="Area2D" parent="." unique_id=1919674365]
+script = ExtResource("18_fbxqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea" unique_id=468339406]
+position = Vector2(1128.6692, 131.5)
+shape = SubResource("RectangleShape2D_pvky2")
+
+[connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
 
 [editable path="Doors/Door_Meadow"]

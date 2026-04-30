@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var max_health := 5
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
+@onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
+
 
 # used for changing the last speech text box, based on the results from the quiz
 @onready var last_dialogue_item: DialogueText = $DialogueInteraction/LastDialogueItem
@@ -50,6 +52,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int):
 	if !invincible:
+		hurt_sfx.play_rand()
 		current_health -= amount
 		
 		animated_sprite.modulate =  Color(2, 2, 2, 1)
@@ -65,6 +68,7 @@ func die():
 
 func _on_correct_answer() -> void:
 	correct_answers += 1
+	print(correct_answers)
 
 func _on_dialogue_end() -> void:
 	if correct_answers <= 2:

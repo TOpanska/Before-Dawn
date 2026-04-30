@@ -4,6 +4,7 @@ class_name GoblinEnemy extends CharacterBody2D
 @export var max_health := 3
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
+@onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
 
 var current_health := 3
 var last_velocity := Vector2()
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	last_velocity = velocity
 
 func take_damage(amount: int):
+	hurt_sfx.play_rand()
 	current_health -= amount
 	
 	animated_sprite.modulate =  Color(2, 2, 2, 1)
