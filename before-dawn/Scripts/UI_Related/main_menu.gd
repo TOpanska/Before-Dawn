@@ -10,19 +10,22 @@ extends Control
 
 
 func _ready() -> void:
-	SaveManager.load_game()
-	fullscreen_toggle.toggle_mode = SaveManager.settings["full_screen_toggle"]
-	print(SaveManager.settings["full_screen_toggle"])
+	set_settings()
 	buttons.visible = true
 	settings.visible = false
 	label.visible = true
 	controls.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+# Sets fullscreen mode and volume from save file
+func set_settings() -> void:
+	SaveManager.load_game()
+	
+	var fullscreen_toggle_saved = SaveManager.settings["full_screen_toggle"]
+	fullscreen_toggle.button_pressed = fullscreen_toggle_saved
+	fullscreen_toggle.on_toggled(fullscreen_toggle_saved)
+	
+	var volume_value_saved = SaveManager.settings["volume"]
+	audio_control.set_volume(volume_value_saved)
 
 func _on_button_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
@@ -38,7 +41,7 @@ func _on_button_exit_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	SaveManager.settings["volume"] = audio_control.value
-	SaveManager.settings["full_screen_toggle"] = fullscreen_toggle.toggle_mode
+	SaveManager.settings["full_screen_toggle"] = fullscreen_toggle.button_pressed
 	buttons.visible = true
 	settings.visible = false
 	label.visible = true

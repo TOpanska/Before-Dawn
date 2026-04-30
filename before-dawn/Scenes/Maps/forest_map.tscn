@@ -724,7 +724,7 @@ shape = SubResource("RectangleShape2D_d7jj2")
 [node name="CrowdYelling" type="AudioStreamPlayer2D" parent="." unique_id=1255174852]
 position = Vector2(-13, 104)
 stream = ExtResource("31_1ojrl")
-volume_db = -20.0
+volume_db = -15.0
 autoplay = true
 max_distance = 400.0
 
