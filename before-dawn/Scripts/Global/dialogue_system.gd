@@ -34,13 +34,14 @@ func _input(event: InputEvent) -> void:
 		event.is_action_pressed("SWING") or
 		event.is_action_pressed("JUMP")
 	):
-		print(dialogue_items)
+		#print(dialogue_items)
 		button_click.play()
 		
 		if waiting_for_choice == true:
 			return
 		
 		dialogue_item_index += 1
+		
 		if dialogue_item_index == dialogue_items.size() - 1:
 			dialogue_ended.emit()
 		if dialogue_item_index < dialogue_items.size():

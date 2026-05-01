@@ -6,12 +6,10 @@ extends Control
 @onready var label: Label = $Label
 @onready var fullscreen_toggle: CheckButton = $Settings/FullscreenToggle
 @onready var audio_control: HSlider = $Settings/AudioControl
-
 @onready var button_play: Button = $VBoxContainer/Button_Play
 @onready var back: Button = $Settings/Back
 @onready var back_2: Button = $Controls/Back_2
-
-
+@onready var button_pressed_sfx: AudioStreamPlayer = $ButtonPressed
 
 func _ready() -> void:
 	set_settings()
@@ -33,6 +31,8 @@ func set_settings() -> void:
 	audio_control.set_volume(volume_value_saved)
 
 func _on_button_play_pressed() -> void:
+	# Wait some time so button sound can be heard
+	await get_tree().create_timer(0.3).timeout
 	get_tree().change_scene_to_file("res://Scenes/game.tscn")
 
 func _on_button_settings_pressed() -> void:
@@ -42,6 +42,8 @@ func _on_button_settings_pressed() -> void:
 	label.visible = false
 	
 func _on_button_exit_pressed() -> void:
+	# Wait some time so button sound can be heard
+	await get_tree().create_timer(0.3).timeout
 	get_tree().quit()
 
 
@@ -68,4 +70,4 @@ func _on_back_2_pressed() -> void:
 
 
 func _on_button_pressed_play_sound() -> void:
-	$ButtonPressed.play()
+	button_pressed_sfx.play()

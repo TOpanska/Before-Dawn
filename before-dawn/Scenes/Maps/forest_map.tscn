@@ -176,7 +176,7 @@ sources/0 = SubResource("TileSetAtlasSource_d7jj2")
 offsets = PackedFloat32Array(0.66071427, 0.8852041, 1)
 colors = PackedColorArray(1, 0.8235294, 1, 1, 0.16800004, 0.13835299, 0.16800004, 0.16800004, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_a26ea"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_whvu8"]
 gradient = SubResource("Gradient_6iyac")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6iyac"]
@@ -191,7 +191,7 @@ angle_max = 720.0
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = -1.6093254e-05
 gravity = Vector3(0, -2, 0)
-color_ramp = SubResource("GradientTexture1D_a26ea")
+color_ramp = SubResource("GradientTexture1D_whvu8")
 turbulence_enabled = true
 turbulence_noise_strength = 1.79
 turbulence_noise_scale = 7.0
@@ -200,7 +200,7 @@ turbulence_noise_scale = 7.0
 offsets = PackedFloat32Array(0.7854478, 1)
 colors = PackedColorArray(0.9999998, 0.89388055, 0.61300063, 1, 0.012617188, 0.012617188, 0.012617188, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_52pn4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d7jj2"]
 gradient = SubResource("Gradient_ro1v6")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kcvum"]
@@ -220,7 +220,7 @@ radial_accel_max = 1.7299978
 tangential_accel_min = -1.7300022
 tangential_accel_max = 1.7299978
 color = Color(1, 1, 0.87058824, 1)
-color_ramp = SubResource("GradientTexture1D_52pn4")
+color_ramp = SubResource("GradientTexture1D_d7jj2")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ee4r6"]
 radius = 62.072536
@@ -624,25 +624,31 @@ metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText2" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=138192917]
 script = ExtResource("22_43gc4")
-text = "The town found out I'm a vampire. I must get back home to safety, lest I'll be put up at the stakes!"
+text = "The town found out I'm a vampire. I need to return home before they put me on a stake."
 npc_name = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText3" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=34553381]
 script = ExtResource("22_43gc4")
-text = "But, it's almost sunrise... Will you manage to return home before dawn without being captured?"
+text = "But the sun will rise soon... Will you manage to return home before dawn without being captured?"
 npc_name = "Elenor"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText4" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1050218822]
 script = ExtResource("22_43gc4")
-text = "Don't worry about me. I'll find a way. However, before I leave the forest I must find my amulet. I dropped it on my way to the city last night..."
+text = "Don't worry about me. I'll find a way. "
+npc_name = "Varek"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText7" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=927009893]
+script = ExtResource("22_43gc4")
+text = "However, before I leave the forest I must find my amulet. I dropped it on my way to the city last night..."
 npc_name = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText5" type="Node" parent="NPC_Elenor/DialogueInteraction" unique_id=1080009032]
 script = ExtResource("22_43gc4")
-text = "In that case I'll buy you some time by distracting anyone I meet. Good luck, Valek. Stay safe..."
+text = "I'll buy you some time by distracting anyone I come across. Good luck, Varek. Stay safe..."
 npc_name = "Elenor"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 

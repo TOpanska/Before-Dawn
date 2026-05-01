@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	last_velocity = velocity
 
 func take_damage(amount: int):
+	hitbox.queue_free()
 	hurt_sfx.play_rand()
 	current_health -= amount
 	

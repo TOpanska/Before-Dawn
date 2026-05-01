@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://du0eqcxqn03wa" path="res://Assets/Sounds/SFX/button_click.ogg" id="5_2oi4k"]
 [ext_resource type="FontFile" uid="uid://q1g011iuncag" path="res://Assets/Fonts/ari-w9500.ttf" id="5_xpyl2"]
 [ext_resource type="AudioStream" uid="uid://t7xwnsrf0lxa" path="res://Assets/Sounds/Music/game_over_music.ogg" id="6_rm0sf"]
+[ext_resource type="AudioStream" uid="uid://y1ib6evpx0uo" path="res://Assets/Sounds/Music/menu_win_music.ogg" id="8_sq6cj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
 atlas = ExtResource("1_bhpww")
@@ -298,12 +299,15 @@ theme_override_fonts/font = ExtResource("5_xpyl2")
 theme_override_font_sizes/font_size = 9
 text = "Current Time: "
 
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="." unique_id=100072600]
-position = Vector2(-51, 185)
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="." unique_id=1983984020]
 stream = ExtResource("5_2oi4k")
 
-[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="." unique_id=309479712]
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="." unique_id=61875397]
 stream = ExtResource("6_rm0sf")
+volume_db = -10.0
+
+[node name="WinMusic" type="AudioStreamPlayer" parent="." unique_id=625212593]
+stream = ExtResource("8_sq6cj")
 volume_db = -10.0
 
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]

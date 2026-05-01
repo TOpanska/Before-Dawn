@@ -21,6 +21,15 @@
 [ext_resource type="Script" uid="uid://xk72pbshe2yk" path="res://Scripts/DialogueSystem/dialogue_branch.gd" id="19_0eb4c"]
 [ext_resource type="Script" uid="uid://dedbmfstgahr2" path="res://Scripts/godrick_wall.gd" id="20_0eb4c"]
 
+[sub_resource type="Environment" id="Environment_0eb4c"]
+background_mode = 3
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 1.5
+glow_bloom = 0.5
+glow_blend_mode = 2
+glow_hdr_threshold = 1.5
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_we444"]
 shader = ExtResource("5_ju1qg")
 shader_parameter/night_top = Color(0.122, 0.229, 0.297, 1)
@@ -58,7 +67,7 @@ func start_dawn(duration: float = 5.0):
 offsets = PackedFloat32Array(0.66071427, 0.8852041, 1)
 colors = PackedColorArray(1, 0.8235294, 1, 1, 0.16800004, 0.13835299, 0.16800004, 0.16800004, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_a26ea"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0eb4c"]
 gradient = SubResource("Gradient_kch7a")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qkrbx"]
@@ -73,19 +82,19 @@ angle_max = 720.0
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = -1.6093254e-05
 gravity = Vector3(0, -2, 0)
-color_ramp = SubResource("GradientTexture1D_a26ea")
+color_ramp = SubResource("GradientTexture1D_0eb4c")
 turbulence_enabled = true
 turbulence_noise_strength = 1.79
 turbulence_noise_scale = 7.0
 
-[sub_resource type="Gradient" id="Gradient_jnoqm"]
+[sub_resource type="Gradient" id="Gradient_0eb4c"]
 offsets = PackedFloat32Array(0.7854478, 1)
 colors = PackedColorArray(0.9999998, 0.89388055, 0.61300063, 1, 0.012617188, 0.012617188, 0.012617188, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_52pn4"]
-gradient = SubResource("Gradient_jnoqm")
+gradient = SubResource("Gradient_0eb4c")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0xm81"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yu8yi"]
 lifetime_randomness = 0.2
 particle_flag_disable_z = true
 emission_shape = 3
@@ -209,6 +218,9 @@ size = Vector2(20, 102)
 
 [node name="MeadowMap" type="Node2D" unique_id=1634201873 groups=["levels"]]
 script = ExtResource("1_i15we")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1703722785]
+environment = SubResource("Environment_0eb4c")
 
 [node name="GlobalLighting" type="CanvasModulate" parent="." unique_id=1330962680]
 color = Color(0.626561, 0.74290234, 0.9152582, 1)
@@ -379,15 +391,15 @@ lifetime = 2.0
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_qkrbx")
 
-[node name="Fireflies" type="GPUParticles2D" parent="Decor" unique_id=372473591]
+[node name="Fireflies" type="GPUParticles2D" parent="Decor" unique_id=1174818808]
 modulate = Color(20.001427, 16.19926, 12.471648, 1)
-position = Vector2(1018, 8)
+position = Vector2(1003, -20)
 amount = 50
 lifetime = 5.5
 collision_base_size = 0.0
 visibility_rect = Rect2(-1000, -200, 2000, 400)
 trail_section_subdivisions = 21
-process_material = SubResource("ParticleProcessMaterial_0xm81")
+process_material = SubResource("ParticleProcessMaterial_yu8yi")
 
 [node name="Decor_TileMap" type="TileMapLayer" parent="." unique_id=1487193868]
 position = Vector2(0, 5)
@@ -448,128 +460,258 @@ position = Vector2(847, 166)
 position = Vector2(1140, 151)
 
 [node name="DialogueInteraction" parent="npc_godrick" unique_id=836996665 instance=ExtResource("16_g864q")]
+position = Vector2(-2, 0)
 
 [node name="DialogueText" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=774030812]
 script = ExtResource("17_uo8jm")
-text = "Hello. I give quiz"
+text = "Stop right there! You're about to tresspass on my bridge. I cannot allow it!"
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText2" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1855738502]
 script = ExtResource("17_uo8jm")
-text = "You have 5 minutes to attempt. One attempt only"
-npc_name = "Godrick"
+text = "Please, I desperately need to get across. Is there something I can do to be allowed passage?"
+npc_name = "Varek"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText3" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=621882439]
 script = ExtResource("17_uo8jm")
-text = "Yay i love quizes."
-npc_name = "Varek"
+text = "[wave]Hmmm, well there is something...[/wave]"
+npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
 [node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1917002956]
 script = ExtResource("17_uo8jm")
-text = "Question 1: boogers or pimples"
+text = "You see, I am a big fan of game development. "
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="DialogueChoice" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1011132336]
+[node name="DialogueText7" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1347497211]
+script = ExtResource("17_uo8jm")
+text = "If you answer enough of my Godot-related questions correctly I will allow you to use my bridge."
+npc_name = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText5" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=251184542]
+script = ExtResource("17_uo8jm")
+text = "Ok, I'll do your quiz."
+npc_name = "Varek"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText6" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1822226785]
+script = ExtResource("17_uo8jm")
+text = "Excellent choice. Question 1: Which node would you use for tile-based maps?"
+npc_name = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="Question1" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=887065139]
 script = ExtResource("18_g864q")
 metadata/_custom_type_script = "uid://camb41kvbnalv"
 
-[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice" unique_id=1170100236]
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/Question1" unique_id=1975596243]
 script = ExtResource("19_0eb4c")
-text = "Boogers"
+text = "Sprite2D"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question1/DialogueBranch" unique_id=2125988151]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/Question1" unique_id=1880047584]
+script = ExtResource("19_0eb4c")
+text = "TileMapLayer"
 is_correct_answer = true
 metadata/_custom_type_script = "uid://xk72pbshe2yk"
 
-[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice/DialogueBranch" unique_id=902153570]
+[node name="Correct" type="Node" parent="npc_godrick/DialogueInteraction/Question1/DialogueBranch2" unique_id=485139230]
 script = ExtResource("17_uo8jm")
-text = "MMM tasty"
-npc_name = "Godrick"
+text = "You have guessed correctly..."
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice" unique_id=226350142]
+[node name="DialogueBranch3" type="Node" parent="npc_godrick/DialogueInteraction/Question1" unique_id=851850803]
 script = ExtResource("19_0eb4c")
-text = "pimples..."
+text = "Node2D"
 metadata/_custom_type_script = "uid://xk72pbshe2yk"
 
-[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice/DialogueBranch2" unique_id=828247808]
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question1/DialogueBranch3" unique_id=1903608633]
 script = ExtResource("17_uo8jm")
-text = "hmmm... i see"
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText8" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1477827124]
+script = ExtResource("17_uo8jm")
+text = "Question 2: What's the correct way to play an animation?"
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="DialogueText5" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1316962257]
-script = ExtResource("17_uo8jm")
-text = "Question 2: gugu or gaga"
-npc_name = "Godrick"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueChoice2" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1533718055]
+[node name="Question2" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=686947171]
 script = ExtResource("18_g864q")
 metadata/_custom_type_script = "uid://camb41kvbnalv"
 
-[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice2" unique_id=550862277]
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/Question2" unique_id=11005943]
 script = ExtResource("19_0eb4c")
-text = "gugu"
+text = "$AnimatedSprite2D.play(\"run\")"
 is_correct_answer = true
 metadata/_custom_type_script = "uid://xk72pbshe2yk"
 
-[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice2/DialogueBranch" unique_id=2052462729]
+[node name="Correct" type="Node" parent="npc_godrick/DialogueInteraction/Question2/DialogueBranch" unique_id=1728819320]
 script = ExtResource("17_uo8jm")
-text = "hmmm... i see"
-npc_name = "Godrick"
+text = "You have guessed correctly..."
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice2" unique_id=1668202213]
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/Question2" unique_id=1738523928]
 script = ExtResource("19_0eb4c")
-text = "gege"
-is_correct_answer = true
+text = "$AnimatedSprite2D.animate(\"run\")"
 metadata/_custom_type_script = "uid://xk72pbshe2yk"
 
-[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice2/DialogueBranch2" unique_id=1738012030]
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question2/DialogueBranch2" unique_id=1210138856]
 script = ExtResource("17_uo8jm")
-text = "Terryfying"
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch3" type="Node" parent="npc_godrick/DialogueInteraction/Question2" unique_id=689714910]
+script = ExtResource("19_0eb4c")
+text = "$AnimatedSprite2D.enable(\"run\")"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question2/DialogueBranch3" unique_id=1460067132]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText9" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1349488151]
+script = ExtResource("17_uo8jm")
+text = "Question 3: What does delta represent in _process(delta)?"
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="DialogueText6" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1130283341]
-script = ExtResource("17_uo8jm")
-text = "Question 3: habadi or gigigi"
-npc_name = "Godrick"
-metadata/_custom_type_script = "uid://bsw880kyxeail"
-
-[node name="DialogueChoice3" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=119697210]
+[node name="DialogueChoice3" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=2025653856]
 script = ExtResource("18_g864q")
 metadata/_custom_type_script = "uid://camb41kvbnalv"
 
-[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3" unique_id=1642897749]
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3" unique_id=583788882]
 script = ExtResource("19_0eb4c")
-text = "habadi"
+text = "Speed of the game"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3/DialogueBranch" unique_id=790583425]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3" unique_id=496308884]
+script = ExtResource("19_0eb4c")
+text = "Distance moved"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3/DialogueBranch2" unique_id=1797157587]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch3" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3" unique_id=423338651]
+script = ExtResource("19_0eb4c")
+text = "Time since the last frame"
 is_correct_answer = true
 metadata/_custom_type_script = "uid://xk72pbshe2yk"
 
-[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3/DialogueBranch" unique_id=1544975915]
+[node name="Correct" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3/DialogueBranch3" unique_id=1098962706]
 script = ExtResource("17_uo8jm")
-text = "gugugaga"
+text = "You have guessed correctly..."
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText10" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1383077078]
+script = ExtResource("17_uo8jm")
+text = "Question 4: What function moves a CharacterBody2D and handles collisions?"
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3" unique_id=1645524801]
+[node name="Question4" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=859109633]
+script = ExtResource("18_g864q")
+metadata/_custom_type_script = "uid://camb41kvbnalv"
+
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/Question4" unique_id=1538495756]
 script = ExtResource("19_0eb4c")
-text = "gigigi"
+text = "move_and_slide()"
+is_correct_answer = true
 metadata/_custom_type_script = "uid://xk72pbshe2yk"
 
-[node name="DialogueText4" type="Node" parent="npc_godrick/DialogueInteraction/DialogueChoice3/DialogueBranch2" unique_id=589321090]
+[node name="Correct" type="Node" parent="npc_godrick/DialogueInteraction/Question4/DialogueBranch" unique_id=790506875]
 script = ExtResource("17_uo8jm")
-text = "hehe gege"
+text = "You have guessed correctly..."
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/Question4" unique_id=889436650]
+script = ExtResource("19_0eb4c")
+text = "move_and_collide()"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question4/DialogueBranch2" unique_id=1207048291]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch3" type="Node" parent="npc_godrick/DialogueInteraction/Question4" unique_id=284017953]
+script = ExtResource("19_0eb4c")
+text = "apply_gravity()"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question4/DialogueBranch3" unique_id=1380854598]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText11" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=2076548591]
+script = ExtResource("17_uo8jm")
+text = "Question 5: What is the correct way to emit a signal?"
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 
-[node name="LastDialogueItem" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=931640257]
+[node name="Question5" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=368474154]
+script = ExtResource("18_g864q")
+metadata/_custom_type_script = "uid://camb41kvbnalv"
+
+[node name="DialogueBranch" type="Node" parent="npc_godrick/DialogueInteraction/Question5" unique_id=175684610]
+script = ExtResource("19_0eb4c")
+text = "signal_name.emit_signal()"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question5/DialogueBranch" unique_id=1600840834]
 script = ExtResource("17_uo8jm")
-text = "MIBOMBO"
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch2" type="Node" parent="npc_godrick/DialogueInteraction/Question5" unique_id=320317978]
+script = ExtResource("19_0eb4c")
+text = "emit_signal(\"signal_name\")"
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Wrong" type="Node" parent="npc_godrick/DialogueInteraction/Question5/DialogueBranch2" unique_id=1782371499]
+script = ExtResource("17_uo8jm")
+text = "[color=red][shake]Wrong![/shake][/color]"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueBranch3" type="Node" parent="npc_godrick/DialogueInteraction/Question5" unique_id=1438993562]
+script = ExtResource("19_0eb4c")
+text = "signal_name.emit()"
+is_correct_answer = true
+metadata/_custom_type_script = "uid://xk72pbshe2yk"
+
+[node name="Correct" type="Node" parent="npc_godrick/DialogueInteraction/Question5/DialogueBranch3" unique_id=495323106]
+script = ExtResource("17_uo8jm")
+text = "You have guessed correctly..."
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="DialogueText12" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=771874002]
+script = ExtResource("17_uo8jm")
+text = "Alright, I have evaluated your results."
+npc_name = "Godrick"
+metadata/_custom_type_script = "uid://bsw880kyxeail"
+
+[node name="LastDialogueItem" type="Node" parent="npc_godrick/DialogueInteraction" unique_id=1164759330]
+script = ExtResource("17_uo8jm")
+text = "Excellent choice. Question 1: "
 npc_name = "Godrick"
 metadata/_custom_type_script = "uid://bsw880kyxeail"
 

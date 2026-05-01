@@ -634,26 +634,24 @@ theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 13
 text = "Controller"
 
-[node name="MenuAndWinMusic" type="AudioStreamPlayer2D" parent="." unique_id=1189052042]
-position = Vector2(-13, 129)
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1178029349]
 stream = ExtResource("11_vr1f0")
 volume_db = -10.0
 autoplay = true
 
-[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="." unique_id=714483995]
-position = Vector2(-51, 185)
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="." unique_id=1530087599]
 stream = ExtResource("13_80s4p")
 
 [connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Play" to="." method="_on_button_pressed_play_sound"]
-[connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_pressed_play_sound"]
+[connection signal="pressed" from="VBoxContainer/Button_Settings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button_Exit" to="." method="_on_button_pressed_play_sound"]
 [connection signal="pressed" from="Settings/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Settings/Back" to="." method="_on_button_pressed_play_sound"]
-[connection signal="pressed" from="Settings/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Settings/Controls" to="." method="_on_button_pressed_play_sound"]
+[connection signal="pressed" from="Settings/Controls" to="." method="_on_controls_pressed"]
 [connection signal="value_changed" from="Settings/AudioControl" to="Settings/AudioControl" method="_on_value_changed"]
 [connection signal="pressed" from="Settings/FullscreenToggle" to="." method="_on_button_pressed_play_sound"]
 [connection signal="toggled" from="Settings/FullscreenToggle" to="Settings/FullscreenToggle" method="on_toggled"]

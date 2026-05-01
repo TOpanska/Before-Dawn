@@ -68,15 +68,14 @@ func die():
 
 func _on_correct_answer() -> void:
 	correct_answers += 1
-	print(correct_answers)
 
 func _on_dialogue_end() -> void:
 	if correct_answers <= 2:
-		last_dialogue_item.text = "GRRRR"
+		last_dialogue_item.text = "[color=red][shake]Wrong! All wrong![/shake][/color] Can't even answer simple questions. You'll [color=red][shake]pay[/shake][/color] for wasting my time!"
 		$StateMachine.current_state = $StateMachine/EnemyWalk
 		invincible = false
 	else:
-		last_dialogue_item.text = "You have successfully submitted the quiz. 6.0/10 Pass"
+		last_dialogue_item.text = "You have successfully answered more than half of my questions... Grrr, I'll let you pass..."
 		clear_wall.emit()
 		queue_free()
 		pass

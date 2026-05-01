@@ -1,4 +1,4 @@
-class_name Collectible extends Sprite2D
+class_name Collectable extends Sprite2D
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

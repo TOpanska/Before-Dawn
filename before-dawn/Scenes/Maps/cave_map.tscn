@@ -8,9 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://cql6tbj4vw21k" path="res://Assets/GFX/Decor/lantern.png" id="6_knryl"]
 [ext_resource type="Texture2D" uid="uid://f2t3h5vjedpc" path="res://Assets/GFX/Decor/light2.png" id="7_xmge7"]
 [ext_resource type="PackedScene" uid="uid://bn6suqook7v7h" path="res://Scenes/Entities/bat_enemy.tscn" id="8_xmge7"]
-[ext_resource type="PackedScene" uid="uid://6ud1w5gibg3u" path="res://Scenes/collectible.tscn" id="9_8ndml"]
+[ext_resource type="PackedScene" uid="uid://6ud1w5gibg3u" path="res://Scenes/collectable.tscn" id="9_8ndml"]
 [ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/GFX/GUI/attack_control.png" id="10_8ndml"]
 [ext_resource type="Script" uid="uid://cgk7p0xd0roaq" path="res://Scripts/UI_Related/control_labels.gd" id="11_54io8"]
+
+[sub_resource type="Environment" id="Environment_8ndml"]
+background_mode = 3
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 1.5
+glow_bloom = 0.5
+glow_blend_mode = 2
+glow_hdr_threshold = 1.5
 
 [sub_resource type="Gradient" id="Gradient_uv662"]
 offsets = PackedFloat32Array(0.001992032, 0.37649402)
@@ -48,6 +57,9 @@ radius = 67.36468
 
 [node name="CaveMap" type="Node2D" unique_id=1865489539 groups=["levels"]]
 script = ExtResource("1_ihytu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=194281165]
+environment = SubResource("Environment_8ndml")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=886584114]
 color = Color(0.25697583, 0.34757, 0.44231355, 1)
@@ -192,14 +204,51 @@ lifetime = 2.0
 fixed_fps = 10
 process_material = SubResource("ParticleProcessMaterial_mkhvy")
 
-[node name="BatEnemy" parent="." unique_id=715379173 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
-position = Vector2(462, 213)
+[node name="Amulet" parent="." unique_id=2077925028 instance=ExtResource("9_8ndml")]
+position = Vector2(89, 201)
+
+[node name="Enemies" type="Node" parent="." unique_id=302386764]
+
+[node name="BatEnemy" parent="Enemies" unique_id=715379173 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
+position = Vector2(461, 213)
 home = NodePath("../BatHome1")
 
-[node name="BatHome1" type="Marker2D" parent="." unique_id=282590839]
+[node name="BatHome1" type="Marker2D" parent="Enemies" unique_id=282590839]
 position = Vector2(461, 213)
 
-[node name="Collectible" parent="." unique_id=2077925028 instance=ExtResource("9_8ndml")]
-position = Vector2(89, 201)
+[node name="BatEnemy2" parent="Enemies" unique_id=592635176 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
+position = Vector2(425, 213)
+home = NodePath("../BatHome2")
+
+[node name="BatHome2" type="Marker2D" parent="Enemies" unique_id=1557846888]
+position = Vector2(426, 213)
+
+[node name="BatEnemy3" parent="Enemies" unique_id=142771092 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
+position = Vector2(167, 357)
+home = NodePath("../BatHome3")
+
+[node name="BatHome3" type="Marker2D" parent="Enemies" unique_id=1143092781]
+position = Vector2(167, 358)
+
+[node name="BatEnemy4" parent="Enemies" unique_id=472284537 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
+position = Vector2(106, 198)
+home = NodePath("../BatHome4")
+
+[node name="BatHome4" type="Marker2D" parent="Enemies" unique_id=1096798082]
+position = Vector2(106, 198)
+
+[node name="BatEnemy5" parent="Enemies" unique_id=300139065 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
+position = Vector2(315, 357)
+home = NodePath("../BatHome5")
+
+[node name="BatHome5" type="Marker2D" parent="Enemies" unique_id=188130061]
+position = Vector2(314, 359)
+
+[node name="BatEnemy6" parent="Enemies" unique_id=1476369504 node_paths=PackedStringArray("home") instance=ExtResource("8_xmge7")]
+position = Vector2(216, 248)
+home = NodePath("../BatHome6")
+
+[node name="BatHome6" type="Marker2D" parent="Enemies" unique_id=392752432]
+position = Vector2(215, 248)
 
 [editable path="Doors/Door_Forest"]

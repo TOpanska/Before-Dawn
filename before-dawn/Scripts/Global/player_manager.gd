@@ -43,8 +43,8 @@ func win():
 	
 	end_screen_scene.get_node("CurrentTime").text += seconds_to_string(time_elapsed)
 	end_screen_scene.get_node("RecordTime").text += seconds_to_string(record)
-	#end_screen_scene.get_node("GameOverMusic").play()
 	get_node("/root/Game").add_child(end_screen_scene)
+	end_screen_scene.get_node("WinMusic").play()
 
 func seconds_to_string(time : int):
 	var minutes = floor(time/60)
