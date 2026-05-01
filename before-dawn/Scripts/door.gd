@@ -4,7 +4,6 @@ class_name Door extends Area2D
 @export var destination_door_tag: String
 @export var spawn_direction: String
 
-#problem
 @onready var spawn = $Spawn
 
 func _ready() -> void:

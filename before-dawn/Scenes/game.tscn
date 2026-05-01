@@ -22,7 +22,7 @@ loop = true
 script = ExtResource("1_qxrlw")
 
 [node name="GlobalTimer" type="Timer" parent="." unique_id=368482138]
-wait_time = 999999.0
+wait_time = 300.0
 autostart = true
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="." unique_id=683875670]

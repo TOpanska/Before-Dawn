@@ -1,8 +1,11 @@
+# Random wander state for a non-flying enemy.
 class_name EnemyWalk extends State
 
 @onready var enemy := $"../.."
+
 @export var movement_speed := 30
 @export var player : CharacterBody2D
+@export var start_follow_range := 100.0
 
 var move_direction : float
 var wander_time: float
@@ -30,5 +33,5 @@ func Physics_Update(delta: float):
 	if enemy:
 		enemy.velocity.x = movement_speed * move_direction
 		
-	if distance < 100:
+	if distance < start_follow_range:
 		transition.emit(self, "EnemyFollow")

@@ -143,8 +143,7 @@ process_mode = 3
 libraries/ = SubResource("AnimationLibrary_c7q0h")
 autoplay = &"default"
 
-[node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1508479980]
-position = Vector2(0, 1)
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=318990972]
 stream = ExtResource("3_peos0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

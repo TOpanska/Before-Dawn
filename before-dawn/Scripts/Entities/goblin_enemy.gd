@@ -1,16 +1,18 @@
 class_name GoblinEnemy extends CharacterBody2D
 
 @onready var animated_sprite := $AnimatedSprite2D
-@export var max_health := 3
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
+@onready var hitbox_collision_shape: CollisionShape2D = $Hitbox/CollisionShape2D
 @onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
+
+@export var max_health := 3
 
 var current_health := 3
 var last_velocity := Vector2()
 
 func _ready() -> void:
-	add_to_group("enemy")
+	add_to_group("enemies")
 	hurtbox.add_to_group("enemy_hurtbox")
 
 func _physics_process(delta: float) -> void:
@@ -33,10 +35,10 @@ func _physics_process(delta: float) -> void:
 		
 	if animated_sprite.flip_h:
 		animated_sprite.offset.x = -9
-		$Hitbox/CollisionShape2D.position = Vector2(-18, 0)
+		hitbox_collision_shape.position = Vector2(-18, 0)
 	else:
 		animated_sprite.offset.x = 0
-		$Hitbox/CollisionShape2D.position = Vector2(8, 0)
+		hitbox_collision_shape.position = Vector2(8, 0)
 	
 	last_velocity = velocity
 
@@ -44,6 +46,7 @@ func take_damage(amount: int):
 	hurt_sfx.play_rand()
 	current_health -= amount
 	
+	# Flashes white to indicate being damaged.
 	animated_sprite.modulate =  Color(2, 2, 2, 1)
 	await get_tree().create_timer(0.5).timeout
 	animated_sprite.modulate = Color(1, 1, 1, 1)

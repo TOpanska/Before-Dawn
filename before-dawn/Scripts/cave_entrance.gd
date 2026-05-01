@@ -1,7 +1,7 @@
+# Used for setting the camera limits in the area before the cave in the forest map.
 extends Area2D
 
 func _ready():
-	# Connect signals
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 

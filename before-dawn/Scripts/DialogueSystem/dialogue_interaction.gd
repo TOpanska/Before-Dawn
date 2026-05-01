@@ -3,7 +3,7 @@ class_name DialogueInteraction extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var area: DialogueInteraction = $"."
-@onready var button_click: AudioStreamPlayer2D = $ButtonClick
+@onready var button_click: AudioStreamPlayer = $ButtonClick
 
 var player_is_in_area := false
 var player_is_talking := false

@@ -6,6 +6,7 @@ class_name EnemyAttack extends State
 @onready var hitbox := $"../../Hitbox"
 
 var is_attacking := false
+# Initially the cooldown is small on the first attack.
 var attack_cooldown := 0.3
 
 func Enter():
@@ -30,7 +31,7 @@ func Update(delta: float):
 			animated_sprite.play("attack")
 			$"../../Hitbox/CollisionShape2D".disabled = false
 			
-			attack_cooldown = 0.75
+			attack_cooldown = 0.65
 
 func Exit():
 	is_attacking = false

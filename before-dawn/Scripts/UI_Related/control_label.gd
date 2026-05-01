@@ -1,3 +1,4 @@
+# Used for showing/hiding the in-game control labels.
 class_name Control_Label extends Sprite2D
 
 func _ready():

@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://bnmoq3l38xiln" path="res://Assets/GFX/Entities/goblin_sheet.png" id="1_l7mss"]
 [ext_resource type="Script" uid="uid://4ssk86fs3c3h" path="res://Scripts/Entities/goblin_enemy.gd" id="1_oopm2"]
 [ext_resource type="Script" uid="uid://dvjrqg4ldbmko" path="res://Scripts/StateMachine/state_machine.gd" id="2_ov1qi"]
-[ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scripts/hurtbox.gd" id="3_n705r"]
+[ext_resource type="Script" uid="uid://dr08gryayk8dv" path="res://Scripts/Entities/enemy_hurtbox.gd" id="3_n705r"]
 [ext_resource type="Script" uid="uid://dpwe1lv6eowwk" path="res://Scripts/StateMachine/enemy_walk.gd" id="3_ons48"]
 [ext_resource type="Script" uid="uid://bsed2ipxxrtcb" path="res://Scripts/StateMachine/enemy_follow.gd" id="5_2k1fa"]
 [ext_resource type="Script" uid="uid://dembenjmkmv5j" path="res://Scripts/StateMachine/enemy_attack.gd" id="6_d2gqx"]
-[ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="7_oo8mk"]
+[ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/Entities/enemy_hitbox.gd" id="7_oo8mk"]
 [ext_resource type="Script" uid="uid://brys0d0d8ocof" path="res://Scripts/randomized_audiostream_player.gd" id="9_hhare"]
 [ext_resource type="AudioStream" uid="uid://bji0grl0iyvou" path="res://Assets/Sounds/SFX/goblin.ogg" id="9_kb7qd"]
 
@@ -155,6 +155,3 @@ script = ExtResource("9_hhare")
 min_pitch = 0.9
 max_pitch = 1.5
 metadata/_custom_type_script = "uid://brys0d0d8ocof"
-
-[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]
-[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]

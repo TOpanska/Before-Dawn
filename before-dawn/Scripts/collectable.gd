@@ -1,17 +1,10 @@
 class_name Collectable extends Sprite2D
 
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var button_click: AudioStreamPlayer2D = $ButtonClick
+@onready var button_click: AudioStreamPlayer = $ButtonClick
 
 var player_is_in_area := false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("INTERACT") and player_is_in_area:
 		button_click.play()
@@ -21,6 +14,7 @@ func _process(delta: float) -> void:
 		pass
 	
 
+# Used for handling the notifying animation when in range.
 func _on_area_2d_body_entered(body) -> void:
 	if body is Player:
 		animation_player.play("show")

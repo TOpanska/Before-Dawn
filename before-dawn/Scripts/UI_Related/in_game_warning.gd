@@ -1,3 +1,4 @@
+# Same as the control label script but this extends Label.
 class_name GameWarningMessage extends Label
 
 func _ready():

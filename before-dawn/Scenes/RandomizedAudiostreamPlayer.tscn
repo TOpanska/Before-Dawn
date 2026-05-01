@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bxvg8ktff4ta7"]
-
-[ext_resource type="Script" uid="uid://brys0d0d8ocof" path="res://Scripts/randomized_audiostream_player.gd" id="1_61gut"]
-
-[node name="RandomizedAudiostreamPlayer" type="AudioStreamPlayer" unique_id=1107119749]
-script = ExtResource("1_61gut")
-min_pitch = 0.8
-max_pitch = 1.2

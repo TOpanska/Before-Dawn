@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
 @onready var animated_sprite := $AnimatedSprite2D
-@export var max_health := 5
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
 @onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
-
-
-# used for changing the last speech text box, based on the results from the quiz
+# Used for changing the last speech text box, based on the results from the quiz.
 @onready var last_dialogue_item: DialogueText = $DialogueInteraction/LastDialogueItem
+@onready var state_machine: Node = $StateMachine
+@onready var enemy_walk: EnemyWalk = $StateMachine/EnemyWalk
+@onready var hitbox_collision_shape: CollisionShape2D = $Hitbox/CollisionShape2D
+
+@export var max_health := 5
 
 var current_health := 5
 var last_velocity := Vector2()
@@ -18,7 +20,7 @@ var invincible := true
 signal clear_wall
 
 func _ready() -> void:
-	add_to_group("enemy")
+	add_to_group("enemies")
 	hurtbox.add_to_group("enemy_hurtbox")
 	DialogueSystem.correctly_answered.connect(_on_correct_answer)
 	DialogueSystem.dialogue_ended.connect(_on_dialogue_end)
@@ -43,14 +45,15 @@ func _physics_process(delta: float) -> void:
 		
 	if animated_sprite.flip_h:
 		animated_sprite.offset.x = -9
-		$Hitbox/CollisionShape2D.position = Vector2(-18, 0)
+		hitbox_collision_shape.position = Vector2(-18, 0)
 	else:
 		animated_sprite.offset.x = 0
-		$Hitbox/CollisionShape2D.position = Vector2(8, 0)
+		hitbox_collision_shape.position = Vector2(8, 0)
 	
 	last_velocity = velocity
 
 func take_damage(amount: int):
+	# NPC shouldn't be attackable before dialogue has ended.
 	if !invincible:
 		hurt_sfx.play_rand()
 		current_health -= amount
@@ -72,7 +75,7 @@ func _on_correct_answer() -> void:
 func _on_dialogue_end() -> void:
 	if correct_answers <= 2:
 		last_dialogue_item.text = "[color=red][shake]Wrong! All wrong![/shake][/color] Can't even answer simple questions. You'll [color=red][shake]pay[/shake][/color] for wasting my time!"
-		$StateMachine.current_state = $StateMachine/EnemyWalk
+		state_machine.current_state = enemy_walk
 		invincible = false
 	else:
 		last_dialogue_item.text = "You have successfully answered more than half of my questions... Grrr, I'll let you pass..."

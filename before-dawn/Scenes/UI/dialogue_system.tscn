@@ -132,6 +132,5 @@ theme_override_fonts/font = ExtResource("3_drpe7")
 text = "Choice 1..."
 alignment = 0
 
-[node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1678804322]
-position = Vector2(0, 1)
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=77597121]
 stream = ExtResource("6_e7an8")

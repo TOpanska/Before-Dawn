@@ -12,4 +12,5 @@ func _on_button_exit_pressed() -> void:
 	
 	# Wait some time so button sound can be heard
 	await get_tree().create_timer(0.3).timeout
+	
 	get_tree().quit()

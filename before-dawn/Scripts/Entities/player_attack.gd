@@ -7,12 +7,9 @@ var can_damage := true
 
 func _ready():
 	collision_shape.disabled = true
-	add_to_group("player_attack")
-	#body_entered.connect(_on_body_entered)
-	#area_entered.connect(_on_area_entered)
 
 func _on_body_entered(body):
-	if can_damage and body.is_in_group("enemy"):
+	if can_damage and body.is_in_group("enemies"):
 		body.take_damage(damage)
 		can_damage = false
 

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bn6suqook7v7h" path="res://Scenes/Entities/bat_enemy.tscn" id="8_xmge7"]
 [ext_resource type="PackedScene" uid="uid://6ud1w5gibg3u" path="res://Scenes/collectable.tscn" id="9_8ndml"]
 [ext_resource type="Texture2D" uid="uid://i54o11m6lmju" path="res://Assets/GFX/GUI/attack_control.png" id="10_8ndml"]
-[ext_resource type="Script" uid="uid://cgk7p0xd0roaq" path="res://Scripts/UI_Related/control_labels.gd" id="11_54io8"]
+[ext_resource type="Script" uid="uid://cgk7p0xd0roaq" path="res://Scripts/UI_Related/control_label.gd" id="11_54io8"]
 
 [sub_resource type="Environment" id="Environment_8ndml"]
 background_mode = 3

@@ -1,3 +1,6 @@
+# Start menu, settings menu and control screen are all withing the same scene.
+# Different elements get shown/hidden depending on which menu we are "inside".
+# This avoids the need for switching scenes.
 extends Control
 
 @onready var buttons: VBoxContainer = $VBoxContainer

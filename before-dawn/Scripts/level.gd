@@ -30,11 +30,11 @@ func _on_level_spawn(destination_tag: String):
 	NavManager.trigger_player_spawn(door.spawn.global_position, door.spawn_direction)
 	
 func update_sun(progress: float):
-	# update sky color
+	# Update sky color (shader).
 	if sky_node and sky_node.material:
 		sky_node.material.set_shader_parameter("sun_rise_amount", progress)
 		
-	# update sun sprite	
+	# Handles position of sun sprite.
 	if sun_sprite:
 		var viewport_rect = get_viewport_rect()
 		var screen_height = viewport_rect.size.y
@@ -63,13 +63,14 @@ func update_sun(progress: float):
 			# full dawn
 			sun_sprite.modulate = Color(1.0, 0.9, 0.6, alpha)
 		
-	# update global lighting
+	# Update global lighting.
 	if global_lighting:
 		var night_color = Color(0.165, 0.296, 0.379, 1.0)
 		var dawn_color = Color(0.733, 0.483, 0.764, 1.0)
 		var day_color = Color(0.859, 0.66, 0.48, 1.0)
 		
 		var current_color
+		
 		if progress < 0.5:
 			var t = progress * 2.0
 			current_color = night_color.lerp(dawn_color, t)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cc6bmbr8ouqro"]
 
 [ext_resource type="Texture2D" uid="uid://lfinj1bjkje4" path="res://Assets/GFX/Decor/spikes.png" id="1_gwqs2"]
-[ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/hitbox.gd" id="2_0qgod"]
+[ext_resource type="Script" uid="uid://d7ah1mtvsl6m" path="res://Scripts/Entities/enemy_hitbox.gd" id="2_0qgod"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwqs2"]
 size = Vector2(22, 10)

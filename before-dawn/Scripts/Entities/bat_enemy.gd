@@ -1,6 +1,5 @@
 # Doesn't have a collision shape for physics so it can go
 # through walls
-
 class_name BatEnemy extends CharacterBody2D
 
 @onready var animated_sprite := $AnimatedSprite2D
@@ -15,14 +14,10 @@ var current_health := 1
 var last_velocity := Vector2()
 
 func _ready() -> void:
-	add_to_group("enemy")
+	add_to_group("enemies")
 	hurtbox.add_to_group("enemy_hurtbox")
 
 func _physics_process(delta: float) -> void:
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-
 	move_and_slide()
 	
 	if velocity.length() > 0:
@@ -40,12 +35,15 @@ func _physics_process(delta: float) -> void:
 	
 	last_velocity = velocity
 
+# Bat only has 1 HP so there's no need to keep its hitbox
 func take_damage(amount: int):
 	hitbox.queue_free()
 	hurt_sfx.play_rand()
 	current_health -= amount
 	
 	animated_sprite.modulate =  Color(2, 2, 2, 1)
+	
+	# Wait so bat flashes white and plays hurt sound
 	await get_tree().create_timer(0.3).timeout
 	
 	if current_health <= 0:

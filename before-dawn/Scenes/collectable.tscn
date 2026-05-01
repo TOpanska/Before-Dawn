@@ -150,8 +150,7 @@ autoplay = &"default"
 energy = 0.5
 texture = ExtResource("4_ixlk2")
 
-[node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=769387102]
-position = Vector2(0, 1)
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1774993062]
 stream = ExtResource("5_v8770")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

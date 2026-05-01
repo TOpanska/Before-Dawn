@@ -6,6 +6,7 @@ var waiting_for_choice : bool = false
 signal finished
 signal correctly_answered
 signal dialogue_ended
+
 var dialogue_items : Array[DialogueItem]
 var dialogue_item_index := 0
 
@@ -14,8 +15,7 @@ var dialogue_item_index := 0
 @onready var name_label: Label = $DialogueUI/NameLabel
 @onready var portrait: Sprite2D = $DialogueUI/Portrait
 @onready var choice_options: VBoxContainer = $DialogueUI/Choices
-@onready var button_click: AudioStreamPlayer2D = $ButtonClick
-
+@onready var button_click: AudioStreamPlayer = $ButtonClick
 
 var elenor_portrait := preload("res://Assets/GFX/Portraits/Elenor_Portrait.png")
 var varek_portrait := preload("res://Assets/GFX/Portraits/Varek_Portrait.png")
@@ -34,7 +34,6 @@ func _input(event: InputEvent) -> void:
 		event.is_action_pressed("SWING") or
 		event.is_action_pressed("JUMP")
 	):
-		#print(dialogue_items)
 		button_click.play()
 		
 		if waiting_for_choice == true:
@@ -75,6 +74,7 @@ func hide_dialogue() -> void:
 	
 func start_dialogue() -> void:
 	waiting_for_choice = false
+	
 	var _d : DialogueItem = dialogue_items[dialogue_item_index]
 	
 	if _d is DialogueText:
@@ -116,7 +116,10 @@ func set_dialogue_choice(_d) -> void:
 
 func _dialogue_choice_selected(_d : DialogueBranch) -> void:
 	choice_options.visible = false
+	
 	if _d.is_correct_answer:
 		correctly_answered.emit()
+		
 	show_dialogue(_d.dialogue_items)
+	
 	pass

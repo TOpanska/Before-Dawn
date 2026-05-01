@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var hearts : Array[TextureRect] = [$HBoxContainer/heart1, $HBoxContainer/heart2, $HBoxContainer/heart3, $HBoxContainer/heart4, $HBoxContainer/heart5, $HBoxContainer/heart6]
 @onready var timer: Label = $Timer
+
 var global_timer : Timer
 
 func _ready() -> void:
@@ -13,7 +14,7 @@ func _process(delta: float) -> void:
 		
 	timer.text = PlayerManager.seconds_to_string(time_left)
 	
-	
+
 func update_hearts(current_health) -> void:
 	for i in range(6):
 		if i + 1 > current_health:

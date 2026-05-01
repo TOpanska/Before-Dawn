@@ -411,7 +411,7 @@ tile_map_data = PackedByteArray("AAAAAAoABQACAAAAAAABAAoABQACAAAAAAACAAoABQACAAA
 tile_set = ExtResource("5_inpmd")
 
 [node name="Player" parent="." unique_id=1453306990 instance=ExtResource("6_acxiw")]
-position = Vector2(41, 148)
+position = Vector2(41, 150)
 
 [node name="Doors" type="Node" parent="." unique_id=1696420088]
 
@@ -425,7 +425,7 @@ position = Vector2(-11, 1)
 disabled = true
 
 [node name="Spawn" parent="Doors/Door_Forest" index="1" unique_id=1374766602]
-position = Vector2(14, 17)
+position = Vector2(14, 19)
 
 [node name="Door_Forest2" parent="Doors" unique_id=1711851936 instance=ExtResource("10_we444")]
 position = Vector2(1752, 131)

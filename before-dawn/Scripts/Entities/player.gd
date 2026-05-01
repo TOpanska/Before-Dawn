@@ -2,13 +2,14 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 70.0
 const JUMP_VELOCITY = -290.0
+
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_hitbox := $Hitbox
-
 @onready var step_sfx: RandomizedAudioStreamPlayer = $Step
 @onready var jump_sfx: RandomizedAudioStreamPlayer = $Jump
 @onready var hit_sfx: RandomizedAudioStreamPlayer = $Hit
 @onready var hurt_sfx: RandomizedAudioStreamPlayer = $Hurt
+@onready var hitbox_collision_shape: CollisionShape2D = $Hitbox/CollisionShape2D
 
 var is_attacking := false
 
@@ -22,6 +23,7 @@ func _ready():
 func _process(delta: float) -> void:
 	_handle_attacking()
 
+# Attacks can't be spammed. The animation needs to finish before another attack is executed.
 func _handle_attacking() -> void:
 	if Input.is_action_just_pressed("SWING") and not is_attacking and is_on_floor():
 		hit_sfx.play_rand()
@@ -34,7 +36,7 @@ func _handle_attacking() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_attacking:
-		# Stop horizontal movement during attack
+		# Stop horizontal movement during attack.
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		move_and_slide()
 		return
@@ -50,27 +52,29 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("LEFT", "RIGHT")
+	
 	if direction:
 		velocity.x = direction * SPEED
 		animated_sprite.play("run")
 		animated_sprite.flip_h = direction < 0
 		
-		# because my character sprite isn't too well made and the character isn't in the middle of a  tile
+		# Because the character sprite isn't centered at a tile (in the sprite sheet).
 		if animated_sprite.flip_h:
 			animated_sprite.offset.x = -10
-			$Hitbox/CollisionShape2D.position = Vector2(-10, 0)
+			hitbox_collision_shape.position = Vector2(-10, 0)
 		else:
 			animated_sprite.offset.x = 0
-			$Hitbox/CollisionShape2D.position = Vector2(13, 0)
+			hitbox_collision_shape.position = Vector2(13, 0)
 			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("idle")
 
+	# Step SFX.
 	if is_on_floor() and !step_sfx.playing and velocity.x != 0:
 		step_sfx.play_rand()
+		
 	elif !is_on_floor() or velocity.x == 0:
 		step_sfx.stop()
 	
@@ -79,9 +83,8 @@ func _physics_process(delta: float) -> void:
 func _on_spawn(position: Vector2, direction: String):
 	global_position = position
 
-
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area is Hitbox:
+	if area is EnemyHitbox:
 		hurt_sfx.play_rand()
 		
 		health -= 1

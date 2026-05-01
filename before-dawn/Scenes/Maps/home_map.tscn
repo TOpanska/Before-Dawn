@@ -525,7 +525,7 @@ position = Vector2(-11, 1)
 disabled = true
 
 [node name="Spawn" parent="Doors/Door_Meadow" index="1" unique_id=1374766602]
-position = Vector2(14, 17)
+position = Vector2(36, 19)
 
 [node name="Enemies" type="Node" parent="." unique_id=1881302291]
 

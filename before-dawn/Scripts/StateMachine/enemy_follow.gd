@@ -1,10 +1,13 @@
+# Player follow state for a non-flying enemy.
 class_name EnemyFollow extends State
 
 @export var enemy: CharacterBody2D
 @export var move_speed := 25.0
 @export var attack_range := 30.0
-@onready var hitbox: Hitbox = $"../../Hitbox"
-	
+@export var start_follow_range := 100.0
+@export var end_follow_range := 150.0
+
+@onready var hitbox: EnemyHitbox = $"../../Hitbox"
 
 var player: CharacterBody2D
 var direction
@@ -19,7 +22,7 @@ func Physics_Update(_delta: float):
 	direction = player.global_position - enemy.global_position
 	var distance = direction.length()
 	
-	if distance < 100:
+	if distance < start_follow_range:
 		enemy.velocity.x = (direction.x / abs(direction.x)) * move_speed
 	else:
 		enemy.velocity = Vector2()
@@ -28,7 +31,7 @@ func Physics_Update(_delta: float):
 		transition.emit(self, "EnemyAttack")
 		return
 	
-	if distance > 150:
+	if distance > end_follow_range:
 		transition.emit(self, "EnemyWalk")
 
 func Exit():
